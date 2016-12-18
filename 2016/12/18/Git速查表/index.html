@@ -28,8 +28,6 @@
     
 
   
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    
   
 
     <link rel="stylesheet" href="/css/style.css">
@@ -73,11 +71,6 @@ var _hmt = _hmt || [];
 					
 					<li>
 					
-						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="st-search-inpu" maxlength="20" placeholder="Search" />
-						</form>
-					
 					</li>
                 <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
 
@@ -91,10 +84,10 @@ var _hmt = _hmt || [];
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/17/Git速查表/" title="Git速查表" itemprop="url">Git速查表</a>
+      <a href="/2016/12/18/Git速查表/" title="Git速查表" itemprop="url">Git速查表</a>
   </h1>
   <p class="article-time">
-    <time datetime="2016-12-17T13:46:25.000Z" itemprop="datePublished">2016年 12月 17日</time>
+    <time datetime="2016-12-17T16:00:00.000Z" itemprop="datePublished">2016年 12月 18日</time>
   </p>
 </header>
 	<div class="article-content">
@@ -102,7 +95,7 @@ var _hmt = _hmt || [];
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title"></strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git速查表"><span class="toc-number">1.</span> <span class="toc-text">Git速查表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#emoji指南"><span class="toc-number">1.1.</span> <span class="toc-text">emoji指南</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-number">1.2.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">1.2.1.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">SSH</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中文问题"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">中文问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-number">1.2.2.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">1.2.3.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地修改"><span class="toc-number">1.2.4.</span> <span class="toc-text">本地修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索"><span class="toc-number">1.2.5.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交历史"><span class="toc-number">1.2.6.</span> <span class="toc-text">提交历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支与标签"><span class="toc-number">1.2.7.</span> <span class="toc-text">分支与标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新与发布"><span class="toc-number">1.2.8.</span> <span class="toc-text">更新与发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并与重置-Rebase"><span class="toc-number">1.2.9.</span> <span class="toc-text">合并与重置(Rebase)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销"><span class="toc-number">1.2.10.</span> <span class="toc-text">撤销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解除vim模式"><span class="toc-number">1.2.11.</span> <span class="toc-text">解除vim模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#暂存本地的修改"><span class="toc-number">1.2.12.</span> <span class="toc-text">暂存本地的修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Flow"><span class="toc-number">1.2.13.</span> <span class="toc-text">Git-Flow</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">1.2.13.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开始"><span class="toc-number">1.2.13.2.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特性"><span class="toc-number">1.2.13.3.</span> <span class="toc-text">特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#做一个release版本"><span class="toc-number">1.2.13.4.</span> <span class="toc-text">做一个release版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#紧急修复"><span class="toc-number">1.2.13.5.</span> <span class="toc-text">紧急修复</span></a></li></ol></li></ol></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git速查表"><span class="toc-number">1.</span> <span class="toc-text">Git速查表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#emoji指南"><span class="toc-number">1.1.</span> <span class="toc-text">emoji指南</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-number">1.2.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">1.2.1.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">SSH</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-number">1.2.2.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">1.2.3.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地修改"><span class="toc-number">1.2.4.</span> <span class="toc-text">本地修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索"><span class="toc-number">1.2.5.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交历史"><span class="toc-number">1.2.6.</span> <span class="toc-text">提交历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支与标签"><span class="toc-number">1.2.7.</span> <span class="toc-text">分支与标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新与发布"><span class="toc-number">1.2.8.</span> <span class="toc-text">更新与发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并与重置-Rebase"><span class="toc-number">1.2.9.</span> <span class="toc-text">合并与重置(Rebase)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销"><span class="toc-number">1.2.10.</span> <span class="toc-text">撤销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解除vim模式"><span class="toc-number">1.2.11.</span> <span class="toc-text">解除vim模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#暂存本地的修改"><span class="toc-number">1.2.12.</span> <span class="toc-text">暂存本地的修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Flow"><span class="toc-number">1.2.13.</span> <span class="toc-text">Git-Flow</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">1.2.13.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开始"><span class="toc-number">1.2.13.2.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特性"><span class="toc-number">1.2.13.3.</span> <span class="toc-text">特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#做一个release版本"><span class="toc-number">1.2.13.4.</span> <span class="toc-text">做一个release版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#紧急修复"><span class="toc-number">1.2.13.5.</span> <span class="toc-text">紧急修复</span></a></li></ol></li></ol></li></ol></li></ol>
 		</div>
 		
 		<h1 id="Git速查表"><a href="#Git速查表" class="headerlink" title="Git速查表"></a>Git速查表</h1><h2 id="emoji指南"><a href="#emoji指南" class="headerlink" title="emoji指南"></a>emoji指南</h2><pre><code>:art:            改进结构和代码格式
@@ -194,7 +187,7 @@ var _hmt = _hmt || [];
     git config --global --unset user.email
 
     在每个repository下 git config user.name &quot;yourname&quot;  git config user.email &quot;youremail&quot; 
-</code></pre><h4 id="中文问题"><a href="#中文问题" class="headerlink" title="中文问题"></a>中文问题</h4><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>Repository配置对应的配置文件路径[–local]：</p>
+</code></pre><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>Repository配置对应的配置文件路径[–local]：</p>
 <pre><code>&lt;repo&gt;/.git/config
 </code></pre><p>用户全局配置对应的配置文件路径[–global]：</p>
 <pre><code>~/.gitconfig
@@ -350,8 +343,8 @@ squash &lt;commit_id3&gt;
 </code></pre><p>将HEAD重置到上一次提交的版本，并保留未提交的本地修改：</p>
 <pre><code>$ git reset --keep &lt;commit&gt;
 </code></pre><p>删除添加.gitignore文件前错误提交的文件：</p>
-<pre><code>$ git rm -r --cached .
-$ git add .
+<pre><code>$ git rm -r --cached 
+$ git add 
 $ git commit -m &quot;remove xyz file&quot;
 </code></pre><h3 id="解除vim模式"><a href="#解除vim模式" class="headerlink" title="解除vim模式"></a>解除vim模式</h3><pre><code>如果是输入状态，先 Esc退出输入状态
 1. shift + ;
@@ -415,16 +408,37 @@ $ git commit -m &quot;remove xyz file&quot;
 <p><img src="http://i.imgur.com/nPddna5.png" alt="commands"></p>
 <p>Git flow schema</p>
 <p><img src="http://i.imgur.com/UQld3EJ.png" alt="Git flow schema"></p>
+<p>参考文章：</p>
+<ul>
+<li><p><a href="https://www.h5jun.com/post/gitmoji.html" title="程序员提交代码的 emoji 指南——原来表情文字不能乱用" target="_blank" rel="external">https://www.h5jun.com/post/gitmoji.html</a></p>
+</li>
+<li><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" title="常用 Git 命令清单" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a></p>
+</li>
+<li><p><a href="http://damonare.github.io/2016/11/13/Git%20%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/#more" title="全面理解Git" target="_blank" rel="external">http://damonare.github.io/2016/11/13/Git%20%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/#more</a></p>
+</li>
+<li><p><a href="http://www.open-open.com/lib/view/open1328069609436.html" title="Git详解系列" target="_blank" rel="external">http://www.open-open.com/lib/view/open1328069609436.html</a></p>
+</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端构建/">前端构建</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/12/17/Git速查表/" data-title="Git速查表 | 读书笔记" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/12/18/Git速查表/" data-title="Git速查表 | 读书笔记" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -433,11 +447,19 @@ $ git commit -m &quot;remove xyz file&quot;
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/12/18/前端种树/" title="前端种树">
+  <strong>新一篇:</strong><br/>
+  <span>
+  前端种树</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2016/12/17/我的博客小站开通啦/"  title="我的博客小站开通啦">
+<a href="/2016/12/17/移动web开发/"  title="移动web开发">
  <strong>旧一篇:</strong><br/> 
- <span>我的博客小站开通啦
+ <span>移动web开发
 </span>
 </a>
 </div>
@@ -445,12 +467,6 @@ $ git commit -m &quot;remove xyz file&quot;
 </nav>
 
 	
-<section class="comment">
-	
-	<div class="ds-thread" data-title="Git速查表" data-thread-key="Git速查表" data-author-key="Roy-K" data-url="http://yoursite.com/post/Git速查表"></div>
-	
-</section>
-
 
 </div>  
     </div>
@@ -594,18 +610,6 @@ $(document).ready(function(){
 });     
 </script>
 
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"roy"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';    //change to ds.src = '/js/embed.js'; to add useragent for duoshuo
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 

@@ -1,0 +1,401 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>前端种树 | 读书笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Roy-K">
+    
+    <meta name="description" content="前端种树
+
+整理知识，建立体系
+
+
+
+0. 开发环境搭建
+[ ] IDE与环境
+[ ] 常用软件
+
+1. 页面与布局
+[x] Html Html5
+[x] css css3 less
+[ ] ps
+[ ] Canvas
+
+2. 页面交互与事件处理
+[x] DOM-API
+[x] DOM-API(尺寸">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
+
+  
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="读书笔记">读书笔记</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="https://roy-k.github.io/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/18/前端种树/" title="前端种树" itemprop="url">前端种树</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2016-12-18T01:17:49.164Z" itemprop="datePublished">2016年 12月 18日</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端种树"><span class="toc-number">1.</span> <span class="toc-text">前端种树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-开发环境搭建"><span class="toc-number">1.1.</span> <span class="toc-text">0. 开发环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-页面与布局"><span class="toc-number">1.2.</span> <span class="toc-text">1. 页面与布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-页面交互与事件处理"><span class="toc-number">1.3.</span> <span class="toc-text">2. 页面交互与事件处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-移动端与响应式开发"><span class="toc-number">1.4.</span> <span class="toc-text">3. 移动端与响应式开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-常用前端库"><span class="toc-number">1.5.</span> <span class="toc-text">4. 常用前端库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-JS面向对象与设计模式"><span class="toc-number">1.6.</span> <span class="toc-text">5. JS面向对象与设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-模块化与组件化开发"><span class="toc-number">1.7.</span> <span class="toc-text">6. 模块化与组件化开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-前端构建"><span class="toc-number">1.8.</span> <span class="toc-text">7. 前端构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-流行框架"><span class="toc-number">1.9.</span> <span class="toc-text">8. 流行框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Node-Js"><span class="toc-number">1.10.</span> <span class="toc-text">9. Node.Js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-混合移动开发"><span class="toc-number">1.11.</span> <span class="toc-text">10. 混合移动开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-开发与部署"><span class="toc-number">1.12.</span> <span class="toc-text">11. 开发与部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-性能优化与代码重构"><span class="toc-number">1.13.</span> <span class="toc-text">12. 性能优化与代码重构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-计算机知识"><span class="toc-number">1.14.</span> <span class="toc-text">13. 计算机知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-思考与进步"><span class="toc-number">1.15.</span> <span class="toc-text">15. 思考与进步</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="前端种树"><a href="#前端种树" class="headerlink" title="前端种树"></a>前端种树</h1><blockquote>
+<ul>
+<li>整理知识，建立体系</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="0-开发环境搭建"><a href="#0-开发环境搭建" class="headerlink" title="0. 开发环境搭建"></a>0. 开发环境搭建</h2><ul>
+<li>[ ] IDE与环境</li>
+<li>[ ] 常用软件</li>
+</ul>
+<h2 id="1-页面与布局"><a href="#1-页面与布局" class="headerlink" title="1. 页面与布局"></a>1. 页面与布局</h2><ul>
+<li>[x] Html Html5</li>
+<li>[x] css css3 less</li>
+<li>[ ] ps</li>
+<li>[ ] Canvas</li>
+</ul>
+<h2 id="2-页面交互与事件处理"><a href="#2-页面交互与事件处理" class="headerlink" title="2. 页面交互与事件处理"></a>2. 页面交互与事件处理</h2><ul>
+<li>[x] DOM-API</li>
+<li>[x] DOM-API(尺寸相关)</li>
+<li>[x] 事件</li>
+<li>[ ] 浏览器与兼容性</li>
+<li>[x] 异步与Ajax</li>
+</ul>
+<h2 id="3-移动端与响应式开发"><a href="#3-移动端与响应式开发" class="headerlink" title="3. 移动端与响应式开发"></a>3. 移动端与响应式开发</h2><ul>
+<li>[x] 纯移动开发</li>
+<li>[ ] 响应式开发</li>
+<li>[ ] Boostrap</li>
+</ul>
+<h2 id="4-常用前端库"><a href="#4-常用前端库" class="headerlink" title="4. 常用前端库"></a>4. 常用前端库</h2><ul>
+<li>[ ] jQuery</li>
+<li>[ ] zepto</li>
+<li>[ ] underscore</li>
+</ul>
+<h2 id="5-JS面向对象与设计模式"><a href="#5-JS面向对象与设计模式" class="headerlink" title="5. JS面向对象与设计模式"></a>5. JS面向对象与设计模式</h2><ul>
+<li>[ ] 重新学习javascript </li>
+<li>[ ] js设计模式</li>
+<li>[ ] js编程模式</li>
+<li>[ ] 函数式编程等</li>
+<li>[ ] ES6+ 新特性</li>
+</ul>
+<h2 id="6-模块化与组件化开发"><a href="#6-模块化与组件化开发" class="headerlink" title="6. 模块化与组件化开发"></a>6. 模块化与组件化开发</h2><ul>
+<li>[ ] 面向组件的编程方式</li>
+<li>[ ] AMD &amp; CMD 设计规范</li>
+<li>[ ] RequireJS &amp; SeaJS</li>
+</ul>
+<h2 id="7-前端构建"><a href="#7-前端构建" class="headerlink" title="7. 前端构建"></a>7. 前端构建</h2><ul>
+<li>[x] 版本控制 git svn</li>
+<li>[ ] npm</li>
+<li>[ ] gulp</li>
+<li>[ ] webpack</li>
+<li>[ ] yeoman脚手架</li>
+<li>[ ] 测试实现</li>
+</ul>
+<h2 id="8-流行框架"><a href="#8-流行框架" class="headerlink" title="8. 流行框架"></a>8. 流行框架</h2><ul>
+<li>[ ] Angular.js</li>
+<li>[ ] React.js</li>
+<li>[ ] Vue.js</li>
+</ul>
+<h2 id="9-Node-Js"><a href="#9-Node-Js" class="headerlink" title="9. Node.Js"></a>9. Node.Js</h2><ul>
+<li>[ ] 服务事件驱动</li>
+<li>[ ] 数据结构与数据库搭建</li>
+<li>[ ] 快速开发框架 Express</li>
+</ul>
+<h2 id="10-混合移动开发"><a href="#10-混合移动开发" class="headerlink" title="10. 混合移动开发"></a>10. 混合移动开发</h2><ul>
+<li>[ ] Ionic</li>
+<li>[ ] React Native</li>
+</ul>
+<h2 id="11-开发与部署"><a href="#11-开发与部署" class="headerlink" title="11. 开发与部署"></a>11. 开发与部署</h2><ul>
+<li>[ ] CDN部署静态资源</li>
+<li>[ ] MD5 与 文件更新vs浏览器缓存</li>
+</ul>
+<h2 id="12-性能优化与代码重构"><a href="#12-性能优化与代码重构" class="headerlink" title="12. 性能优化与代码重构"></a>12. 性能优化与代码重构</h2><h2 id="13-计算机知识"><a href="#13-计算机知识" class="headerlink" title="13. 计算机知识"></a>13. 计算机知识</h2><ul>
+<li>[ ] HTTP 协议</li>
+</ul>
+<h2 id="15-思考与进步"><a href="#15-思考与进步" class="headerlink" title="15. 思考与进步"></a>15. 思考与进步</h2>  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/18/前端种树/" data-title="前端种树 | 读书笔记" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/12/18/Git速查表/"  title="Git速查表">
+ <strong>旧一篇:</strong><br/> 
+ <span>Git速查表
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 高宽 Roy</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>

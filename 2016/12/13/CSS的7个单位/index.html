@@ -1,0 +1,386 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>CSS:7个你可能不认识的单位 | 读书笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Roy-K">
+    
+    <meta name="description" content="CSS:7个你可能不认识的单位em    rem
+
+em 定义为相对于当前对象内文本的字体大小, 但是如果嵌套使用, 子元素会相对于父元素计算
+
+rem 定义为相对于根元素的字体大小, 
+ 可用于网格布局, 界面根据内容进行缩放    
+
+
+vh    vw
+    响应式设计对百分百规则有很大的依">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
+
+  
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="读书笔记">读书笔记</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="https://roy-k.github.io/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/13/CSS的7个单位/" title="CSS:7个你可能不认识的单位" itemprop="url">CSS:7个你可能不认识的单位</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2016-12-12T16:00:00.000Z" itemprop="datePublished">2016年 12月 13日</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-7个你可能不认识的单位"><span class="toc-number">1.</span> <span class="toc-text">CSS:7个你可能不认识的单位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#em-rem"><span class="toc-number">1.1.</span> <span class="toc-text">em    rem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vh-vw"><span class="toc-number">1.2.</span> <span class="toc-text">vh    vw</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vmin-vmax"><span class="toc-number">1.3.</span> <span class="toc-text">vmin    vmax</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex-ch"><span class="toc-number">1.4.</span> <span class="toc-text">ex    ch</span></a></li></ol></li></ol>
+		</div>
+		
+		<h2 id="CSS-7个你可能不认识的单位"><a href="#CSS-7个你可能不认识的单位" class="headerlink" title="CSS:7个你可能不认识的单位"></a>CSS:7个你可能不认识的单位</h2><h3 id="em-rem"><a href="#em-rem" class="headerlink" title="em    rem"></a>em    rem</h3><hr>
+<ol>
+<li><p>em 定义为相对于当前对象内文本的字体大小, 但是如果嵌套使用, 子元素会相对于父元素计算</p>
+</li>
+<li><p>rem 定义为相对于根元素的字体大小, </p>
+<pre><code> 可用于网格布局, 界面根据内容进行缩放    
+</code></pre></li>
+</ol>
+<h3 id="vh-vw"><a href="#vh-vw" class="headerlink" title="vh    vw"></a>vh    vw</h3><hr>
+<pre><code>    响应式设计对百分百规则有很大的依赖性. 但是css的百分比是相对于父元素的,如果想使用视口的宽高, 可以使用vh和vw
+</code></pre><ol>
+<li><p>1vh 等于1% 视口的高度, 简单的一句就可以实现同屏幕等高的框…</p>
+</li>
+<li><p>vw 同</p>
+</li>
+</ol>
+<h3 id="vmin-vmax"><a href="#vmin-vmax" class="headerlink" title="vmin    vmax"></a>vmin    vmax</h3><hr>
+<pre><code>    vh和vw是相对于视口的宽度和高度，而vmin和vmax则关于视口高度和宽度两者的最小或者最大值。
+    例如，如果浏览器的高宽分别为700px和1100px，则1vmin=7px，1vmax=11px；如果高宽分别是1080px和800px,则1vmin=8px,1vmax=10.8px
+</code></pre><p>假设有一个元素，你需要让它始终在屏幕上可见。只要对其高度和宽度使用vmin单位，并赋予其低于100的值就可以做到了。例如，可以这样定义一个至少有两个边触摸到屏幕的方形：</p>
+<pre><code>.box {
+    height: 100vmin;
+    width: 100vmin;
+}
+</code></pre><p><img src="http://i.imgur.com/LgUkAY0.png" alt=""></p>
+<p>如果你要让这个方形框框始终铺满整个视口的可见区域（四边始终触摸到屏幕的四边）：</p>
+<pre><code>.box {
+    height: 100vmax;
+    width: 100vmax;
+}
+</code></pre><p>结合使用这些单位可以为我们提供一个新颖有意思的方式来灵活地利用我们视口的大小。</p>
+<h3 id="ex-ch"><a href="#ex-ch" class="headerlink" title="ex    ch"></a>ex    ch</h3><hr>
+<pre><code>    单位ex和ch，就跟em和rem类似，取决于当前的字体和字体大小。然而，跟em和rem不同的是，ex和ch是基于字体的度量单位，依赖于设定的字体。
+</code></pre><ol>
+<li><p>单位ch通常被定义为数字0的宽度。</p>
+</li>
+<li><p>单位ex定义为当前字体的小写x的高度或者1/2的em。很多时候，它是字体的中间标志。</p>
+</li>
+</ol>
+<p>他们有很多的用途，但是大部分用于版式的微调。比如，sup元素（上角标字符），可以利用position:relative;bottom: 1ex;实现，同理，可以实现一个下角标文字。浏览器默认的处理方式是利用上标和下标特定垂直对齐规则，但是如果你想更细粒度更精确得控制，你可以像下面这样做：</p>
+<pre><code>sup {
+    position: relative;
+    bottom: 1ex;
+}
+sub {
+    position: relative;
+    bottom: -1ex;
+}
+</code></pre><p>参考文章：</p>
+<p><a href="http://www.imooc.com/article/12777" title="CSS：7个你可能不认识的单位" target="_blank" rel="external">http://www.imooc.com/article/12777</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CSS/">CSS</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/页面与布局/">页面与布局</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/13/CSS的7个单位/" data-title="CSS:7个你可能不认识的单位 | 读书笔记" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/15/AJAX/" title="服务器与AJAX">
+  <strong>新一篇:</strong><br/>
+  <span>
+  服务器与AJAX</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/12/CSS3/"  title="CSS3入门">
+ <strong>旧一篇:</strong><br/> 
+ <span>CSS3入门
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 高宽 Roy</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>

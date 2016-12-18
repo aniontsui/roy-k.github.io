@@ -1,0 +1,561 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>服务器与AJAX | 读书笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Roy-K">
+    
+    <meta name="description" content="AJAX    Asynchronous Javascript And Xml
+AJAX不是一门语言, 而是对现有技术的综合利用. 本质是在HTTP协议的基础上以异步的方式与服务器进行通信
+异步 指某段程序执行时 不会阻塞 其他程序执行, 其表现形式为程序的执行顺序 不依赖程序本身的书写顺序 ,相反">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
+
+  
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="读书笔记">读书笔记</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="https://roy-k.github.io/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/15/AJAX/" title="服务器与AJAX" itemprop="url">服务器与AJAX</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2016-12-14T16:00:00.000Z" itemprop="datePublished">2016年 12月 15日</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AJAX"><span class="toc-number">1.</span> <span class="toc-text">AJAX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aphache环境配置"><span class="toc-number">1.0.1.</span> <span class="toc-text">aphache环境配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XML"><span class="toc-number">1.0.2.</span> <span class="toc-text">XML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON"><span class="toc-number">1.0.3.</span> <span class="toc-text">JSON</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX编程"><span class="toc-number">1.1.</span> <span class="toc-text">AJAX编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XMLHttpRequest"><span class="toc-number">1.1.1.</span> <span class="toc-text">XMLHttpRequest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口化开发"><span class="toc-number">1.1.2.</span> <span class="toc-text">接口化开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同源策略与跨域"><span class="toc-number">1.1.3.</span> <span class="toc-text">同源策略与跨域</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><pre><code>    Asynchronous Javascript And Xml
+</code></pre><p><strong>AJAX不是一门语言, 而是对现有技术的综合利用. 本质是在HTTP协议的基础上以异步的方式与服务器进行通信</strong></p>
+<p><strong>异步</strong> 指某段程序执行时 <strong>不会阻塞</strong> 其他程序执行, 其表现形式为程序的执行顺序 <strong>不依赖程序本身的书写顺序</strong> ,相反则为同步.</p>
+<p><strong>文件传输协议</strong></p>
+<pre><code>HTTP    超文本传输协议
+FTP        文件传输协议
+SMTP    简单邮件传输协议等
+</code></pre><p><strong>XMLHttpRequest</strong> 浏览器内建对象, 用于在 <strong>后台</strong> 与服务器通信, 由此我们便可实现对网页的<strong>部分刷新</strong></p>
+<h3 id="aphache环境配置"><a href="#aphache环境配置" class="headerlink" title="aphache环境配置"></a>aphache环境配置</h3><ol>
+<li><p>配置网站根目录<br> 打开**\bin\apache\Apache2.2.21\conf\httpd.conf<br> 查找并修改 DocumentRoot<br> 查找并修改 <directory "d:="" wamp="" www="" "=""> </directory></p>
+</li>
+<li><p>配置虚拟主机<br> 打开**\bin\apache\Apache2.2.21\conf\httpd.conf<br> 找到# Virtual hosts<br> Include conf/extra/httpd-vhosts.conf     取消注释</p>
+<p> 配置conf/extra/httpd-vhosts.conf文件的地址指向</p>
+<pre><code> DocumentRoot
+ ServerName
+ ServerAlias
+</code></pre></li>
+<li><p>配置DNS<br> 修改本机hosts文件<br> 注意修改hosts文件权限</p>
+</li>
+</ol>
+<hr>
+<h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><pre><code>XML是一种标记语言, 类似html, 宗旨是用来传输数据. 独立于语言, 跨平台
+
+&lt;?xml version=&quot;1.0&quot; charset=&quot;utf-8&quot;?&gt;
+&lt;root&gt;
+    &lt;school&gt;
+        &lt;class&gt;
+            &lt;student&gt;
+                &lt;name&gt;hh&lt;/name&gt;
+            &lt;/student&gt;
+        &lt;/class&gt;
+    &lt;/school&gt;
+&lt;/root&gt;
+</code></pre><p><strong>语法规则</strong></p>
+<pre><code>1. 必须有一个根元素
+
+2. 标签开头不可有空格、不可以数字或.开头、大小写敏感
+
+3. 属性双引号（浏览器自动修正成双引号了）
+
+4. 特殊符号要使用实体
+
+5. 解析过于复杂并且体积较大。解析--DOM操作与html类似
+</code></pre><hr>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><pre><code>JavaScript Objest Notation 另一种轻量级的文本数据交换格式, 独立于语言, 跨平台
+
+var    school = {
+    &quot;class&quot;: {
+        &quot;student&quot;: {
+            &quot;name&quot;:&#39;hh&#39;
+        }
+    }
+}
+</code></pre><p><strong>特点</strong></p>
+<pre><code>1. 数据在键值对中
+2. 数据由逗号分隔
+3. 花括号对象/方括号数组
+4. 使用双引号
+</code></pre><p><strong>解析</strong></p>
+<pre><code>    JSON数据在不同语言进行传输时，类型为字符串，不同的语言各自也都对应有解析方法，需要解析完成后才能读取
+
+1. eval()
+
+2. JSON内建对象
+    1. JSON.parse()            从字符串解析出json对象
+    2. JSON.stringify()        从json对象解析为字符串
+
+3. php方法
+    1. json_encode()        对变量进行 JSON 编码，返回 value 值的 JSON 形式
+    2. json_decode()        将json字符串转化为php变量
+</code></pre><hr>
+<h2 id="AJAX编程"><a href="#AJAX编程" class="headerlink" title="AJAX编程"></a>AJAX编程</h2><p><img src="http://i.imgur.com/p0WPOo9.jpg" alt="实现流程"></p>
+<h3 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h3><pre><code>1. 实例化                new HMLHttpRequest()
+        兼容处理: IE5、IE6中不支持XMLHttpRequest
+        IE5、IE6中使用 ActiveObject(&quot;Microsoft.XMLHTTP&quot;);
+
+2. 设置请求行                .open(&#39;get&#39;,&#39;index.php&#39;)
+
+3. post方式需设置请求头    .setRequestHeader(&#39;Content-Type&#39;,&#39;application/x-www-form-urlencoded&#39;)
+
+4. 发送请求请求主体        .send(data)
+
+5. 监听服务器响应            .onreadystatechange = fn
+    1. 获取状态行                .status==200/.readystate=4/.statusText=OK
+    2. 获取响应头                .getResponseHeader()/getAllResponseHeaders()
+    3. 响应主体                .responseText/responseXML    (根据响应头的类型选取)
+</code></pre><p><strong>get/post的差异</strong></p>
+<pre><code>1. get没有请求主体. 使用null
+2. get可以通过请求url上添加请求参数
+3. post可以通过xhr.send(&#39;name=itcast&amp;age=10&#39;)添加参数
+4. post需要设置xhr.setRequestHeader(&#39;Content-Type&#39;,&#39;application/x-www-form-urlencoded&#39;)
+5. get效率更好 常用
+6. get大小限制约4k, post没有限制    (如何获取复杂数据)
+</code></pre><p><strong>请求报文</strong></p>
+<pre><code>    请求报文行
+        由 请求方式 / url / 协议版本 构成    
+    报文头
+        host:请求的主机
+        accept:接受的文档MIME类型
+        user-Agent:客户端信息
+        refer:从哪个url跳转的
+</code></pre><p><strong>响应报文</strong></p>
+<pre><code>    .responseText
+    .responseXML
+    .status
+    .readystate
+    .statusText
+
+    .getResponseHeader()
+    .getAllResponseHeaders()
+</code></pre><p><strong>事件</strong></p>
+<pre><code>    .onreadystatechande
+    .readyState
+        0     open尚未调用
+        1    已调用
+        2    接收到头部信息
+        3    接收到响应主体
+        4    响应完成 
+</code></pre><p><strong>等等</strong></p>
+<pre><code>设置超时
+使用FormData()
+文件上传
+跨越资源共享
+上传时度
+</code></pre><p><strong>jQuery框架的ajax</strong></p>
+<pre><code>jQuery: $.ajax({
+    type:&#39;get&#39;,
+    data:&#39;&#39;,
+    dataType,        jsonp用于跨域
+    url:&#39;&#39;,
+    beforeSend:fn(){}    发送前动作
+    success:fn(){}        响应成功动作
+    error:fn(){}        错误响应式调用
+    complete:fn(){}        响应完成动作 不论成功还是失败
+
+})
+
+jQuery.get(url, [data], [callback], [type])
+jQuery.post(url, [data], [callback], [type])
+
+$.serialize()        将表格内容序列化为字符串, 用于ajax请求
+$.serializeArray()    序列化为json数据结构, 需要另外进行解析
+</code></pre><hr>
+<p><strong>模板引擎</strong></p>
+<pre><code>    其本质是利用正则表达式，替换模板当中预先定义好的标签。 exec
+
+    方便对获得的大量复杂数据的渲染
+
+artTemplate        https://github.com/aui/artTemplate
+
+    1. 引入template-native.js
+
+    2. &lt;% 与  %&gt; 符号包裹起来的语句则为模板的逻辑表达式
+
+    3. &lt;%= content %&gt;为输出表达式
+
+        var html = template(&#39;tempId&#39;,obj)    
+        使用的是传入对象的属性, 数组需进行包装
+
+JsRender
+baiduTemplate        http://tangram.baidu.com/BaiduTemplate/
+Mustache
+Hanldebars            http://handlebarsjs.com/
+velocity.js            https://github.com/shepherdwind/velocity.js/
+</code></pre><hr>
+<h3 id="接口化开发"><a href="#接口化开发" class="headerlink" title="接口化开发"></a>接口化开发</h3><pre><code>1. 请求地址即所谓的接口
+
+2. 接口化开发，是指一个接口对应一个功能，并且严格约束了请求参数和响应结果的格式
+
+3. 这样前后端在开发过程中，可以减少不必要的讨论，从而并行开发，可以极大的提升开发效率
+
+4. 另外一个好处，当网站进行改版后，服务端接口只需要进行微调。
+</code></pre><hr>
+<h3 id="同源策略与跨域"><a href="#同源策略与跨域" class="headerlink" title="同源策略与跨域"></a>同源策略与跨域</h3><pre><code>同源策略(域名/协议/端口完全相同)是浏览器的一种安全策略, 也就是浏览器默认不允许跨域
+
+1. 跨域和同源机制是浏览器的行为: 默认会阻止跨域请求
+2. 跨域是指: 协议, 域名或者端口不同
+3. 本质利用了src的天然跨域特性
+</code></pre><p><strong>跨域解决方案</strong></p>
+<pre><code>JSONP      json with padding 
+    (jsonp跨域与异步对象, 没有任何关系, 不是使用异步对象来做的)
+    本质利用了script标签src属性具有可跨域的特性
+
+    由服务端返回一个预先定义好的Javascript函数的调用
+
+    并且把服务器数据以函数参数形式传递过来, 前后端配合完成/只能以get方式请求 
+1. 页面预先有定义函数
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        function dosomething(jsondata){
+            //处理获得的json数据
+        }
+    &lt;/script&gt;
+
+2. 请求中指定需要执行的函数名
+    &lt;script src=&quot;http://example.com/data.php?callback=dosomething&quot;&gt;&lt;/script&gt;
+
+3. php中得到函数名, 并将数据拼接为函数调用形式, 返回到页面中即形成调用
+    &lt;?php
+    $callback = $_GET[&#39;callback&#39;];//得到回调函数名
+    $data = array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;);//要返回的数据
+    echo $callback.&#39;(&#39;.json_encode($data).&#39;)&#39;;//输出
+    ?&gt;
+
+    1. jQuery 的$.ajax() 方法当中集成了JSONP的实现，可以非常方便的实现跨域数据的访问。
+
+    2. dataType: &#39;jsonp&#39; 设置dataType值为jsonp即开启跨域访问
+
+    3. jsonp 可以指定服务端接收的参数的“key”值，默认为callback
+
+    4. jsonpCallback 可以指定相应的回调函数，默认自动生成
+            对传回的数据进行分解, 使用
+
+
+
+document.domain + iframe
+    顶级域名相同的可以通过domain.name来解决，即同时设置 domain.name = 顶级域名（如example.com）
+
+window.name + iframe
+
+location.hash + iframe
+
+window.postMessage
+    window.postMessage(message,targetOrigin)方法是html5新引进的特性，可以使用它来向其它的window对象发送消息，无论这个window对象是属于同源或不同源
+</code></pre><hr>
+<pre><code>CORS    未来标准
+
+    CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，IE浏览器不能低于IE10。
+
+    整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。
+
+    因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。
+</code></pre><p><strong>要么万人之上的深度, 要么万人玩不来的技能!</strong></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/AJAX/">AJAX</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/页面交互与事件处理/">页面交互与事件处理</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/15/AJAX/" data-title="服务器与AJAX | 读书笔记" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/17/移动web开发/" title="移动web开发">
+  <strong>新一篇:</strong><br/>
+  <span>
+  移动web开发</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/13/CSS的7个单位/"  title="CSS:7个你可能不认识的单位">
+ <strong>旧一篇:</strong><br/> 
+ <span>CSS:7个你可能不认识的单位
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 高宽 Roy</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>
