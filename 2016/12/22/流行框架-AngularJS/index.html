@@ -10,14 +10,12 @@
     <meta name="author" content="Roy-K">
     
     <meta name="description" content="AngularJS标签：MVC、模块化(编程)、自动化双向数据绑定、语义化标签、指令、依赖注入等等。
+AngularJS主要考虑的是构建CRUD应用，一般是：单页面的应用程序。
 优势：
 
 Angular 最大程度的减少了页面上的 DOM 操作
 让 JavaScript 中专注业务逻辑的代码
-代码结构更合理
-维护成本更低
-通过简单的指令把页面结构和数据结合
-通过自定义指令实现">
+代码结构">
     
     
     
@@ -102,7 +100,8 @@ var _hmt = _hmt || [];
 		</div>
 		
 		<h1 id="AngularJS"><a href="#AngularJS" class="headerlink" title="AngularJS"></a>AngularJS</h1><pre><code>标签：MVC、模块化(编程)、自动化双向数据绑定、语义化标签、指令、依赖注入等等。
-</code></pre><p>优势：</p>
+</code></pre><p><strong>AngularJS主要考虑的是构建CRUD应用，一般是：单页面的应用程序。</strong></p>
+<p>优势：</p>
 <ul>
 <li>Angular 最大程度的减少了页面上的 DOM 操作</li>
 <li>让 JavaScript 中专注业务逻辑的代码</li>
@@ -123,18 +122,17 @@ var _hmt = _hmt || [];
 <li><p>抓虫<br>  抓虫：输出内容完整的 HTML<br>  用户：输出没有内容的 HTML，然后 JS 自己再通过 API 请求内容渲染。</p>
 <p>  贴一下 jsgen 处理抓虫的代码：<br>  var robotReg = new RegExp(‘Baiduspider|Googlebot|BingBot|Slurp!’, ‘i’);</p>
 <p>  if (robotReg.test(req.useragent)) {</p>
-<pre><code>  //是搜索引擎爬虫，输出静态页面
+<pre><code>  是搜索引擎爬虫，输出静态页面
 </code></pre><p>  }</p>
 </li>
 </ul>
 </li>
 </ul>
-<p><strong>AngularJS主要考虑的是构建CRUD应用，一般是：单页面的应用程序。</strong></p>
 <h2 id="主要技术点"><a href="#主要技术点" class="headerlink" title="主要技术点"></a>主要技术点</h2><pre><code>1. ajax
 2. 锚点的使用（window.loacation.hash#)
 </code></pre><p><strong>SPA</strong></p>
-<pre><code>单页Web应用（single page web application，SPA），就是只有一个Web页面的应用，是加载单个HTML 页面并在用户与应用程序交互时动态更新该页面的Web应用程序。
-</code></pre><ul>
+<p>单页Web应用（single page web application，SPA），就是只有一个Web页面的应用，是加载单个HTML 页面并在用户与应用程序交互时动态更新该页面的Web应用程序。</p>
+<ul>
 <li>无刷新加载页面，避免了不必要的跳转和重复渲染</li>
 <li>更好的用户体验，让用户在web app感受native app的速度和流畅</li>
 <li>减少了请求体积，节省流量，加快页面响应速度</li>
@@ -158,33 +156,38 @@ var _hmt = _hmt || [];
 <p>是将controller换为viewModel  </p>
 <p>Angular中大量的使用$scope,盖过了C（控制器）的概念，所以很多人将其称为MVVM框架</p>
 <p>$scope实际就是MVVM模式中的VM（视图模型）</p>
-<h3 id="directive-指令"><a href="#directive-指令" class="headerlink" title="directive - 指令"></a>directive - 指令</h3><pre><code>- AngularJS 有一套完整的、可扩展的、用来帮助 Web 应用开发的指令集
-
-- 指令是DOM元素上的一些标记，让NG给DOM元素添加一些特殊的行为
-
-    常用指令：
-        关键控制:ng-app ng-controller
-        逻辑: ng-if/switch ng-repeat
-        页面元素: ng-show/hide ng-class ng-cloak ng-src/href 
-        事件: ng-click / ng-submit / ng-dblclick / ng-blur / ng-focus / ng-change
-        数据: ng-model ng-bind
-        表单: ng-checked ng-selected ng-disabled ng-readonly
-
-- 所有指令兼容HTML5标准的指令 即可以使用 `data-` 开头
-</code></pre><p><strong>自定义指令</strong></p>
-<pre><code>- 自定义指令用于扩展和增强HTML
-- 用于封装一些常用而且共用的功能
-- AngularJS仍然有DOM操作,所有的DOM操作都应该集中在自定义指令中
-</code></pre><ol>
-<li><p>创建</p>
-<p> 语法：模块.directive(“指令名称”, callback)</p>
-<pre><code> 第一个参数：表示指令的名称，使用驼峰命名法，在视图中使用时修改为`-`分割的形式
- 第二个参数：是一个回调函数，让用户设置该指令的行为
- angular.module(&quot;testApp&quot;, [])
-     .directive(&quot;myBtn&quot;, [function() {
-         return {};
- }]);
+<h3 id="directive-指令"><a href="#directive-指令" class="headerlink" title="directive - 指令"></a>directive - 指令</h3><ul>
+<li><p>AngularJS 有一套完整的、可扩展的、用来帮助 Web 应用开发的指令集</p>
+</li>
+<li><p>指令是DOM元素上的一些标记，让NG给DOM元素添加一些特殊的行为</p>
+<p>  常用指令：</p>
+<pre><code>  关键控制:ng-app ng-controller
+  逻辑: ng-if/switch ng-repeat
+  页面元素: ng-show/hide ng-class ng-cloak ng-src/href 
+  事件: ng-click / ng-submit / ng-dblclick / ng-blur / ng-focus / ng-change
+  数据: ng-model ng-bind
+  表单: ng-checked ng-selected ng-disabled ng-readonly
 </code></pre></li>
+<li><p>所有指令兼容HTML5标准的指令 即可以使用 <code>data-</code> 开头</p>
+</li>
+</ul>
+<p><strong>自定义指令</strong></p>
+<ul>
+<li>自定义指令用于扩展和增强HTML</li>
+<li>用于封装一些常用而且共用的功能</li>
+<li>AngularJS仍然有DOM操作,所有的DOM操作都应该集中在自定义指令中</li>
+</ul>
+<ol>
+<li>创建</li>
+</ol>
+<p>语法：模块.directive(“指令名称”, callback)</p>
+<pre><code>第一个参数：表示指令的名称，使用驼峰命名法，在视图中使用时修改为`-`分割的形式
+第二个参数：是一个回调函数，让用户设置该指令的行为
+angular.module(&quot;testApp&quot;, [])
+    .directive(&quot;myBtn&quot;, [function() {
+        return {};
+}]);
+</code></pre><ol>
 <li><p>常用属性</p>
 <ul>
 <li>template: 模板，设置自定义指令显示的内容</li>
@@ -193,7 +196,7 @@ var _hmt = _hmt || [];
   - url: 一个页面，页面中用于存放模板标签 （agnular会异步请求该路径，注意跨域问题）
 </code></pre></li>
 <li><p>restrict: </p>
-<pre><code>      - 属性（A）、元素（E）、类（C）、注释（M）-有固定格式directive:m
+<pre><code>  - 属性（A）、元素（E）、类（C）、注释（M）-有固定格式directive:m
 </code></pre></li>
 <li><p>link: 该属性的值是一个函数，这个函数给当前指令提供了事件，该函数有3个参数</p>
 <pre><code>  - scope: 表示当前指令的作用域，用来暴露一些数据，类似与控制器的scope，只在当前指令中有效
@@ -205,9 +208,8 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ol>
-<h3 id="expression-表达式"><a href="#expression-表达式" class="headerlink" title="expression - 表达式"></a>expression - 表达式</h3><pre><code>从JS角度，使用运算符和数据 连接起来的有 结果 的代码就是：表达式
-`&amp;#123;{expression}}`
-</code></pre><h3 id="module-模块"><a href="#module-模块" class="headerlink" title="module - 模块"></a>module - 模块</h3><p>模块是一个容器包含了应用程序的不同组成部分，并且这些内容必须要依附于一个模块<br><code>angular.module(moduleName, [])</code></p>
+<h3 id="expression-表达式"><a href="#expression-表达式" class="headerlink" title="expression - 表达式"></a>expression - 表达式</h3><p>从JS角度，使用运算符和数据 连接起来的有 结果 的代码就是：表达式<br>    <code>&amp;#123;{expression}}</code></p>
+<h3 id="module-模块"><a href="#module-模块" class="headerlink" title="module - 模块"></a>module - 模块</h3><p>模块是一个容器包含了应用程序的不同组成部分，并且这些内容必须要依附于一个模块<br><code>angular.module(moduleName, [])</code></p>
 <h3 id="controller-控制器"><a href="#controller-控制器" class="headerlink" title="controller - 控制器"></a>controller - 控制器</h3><ol>
 <li>初始视图中使用的数据</li>
 <li>通过$scope对象把数据模型或函数行为暴露给视图</li>
@@ -230,21 +232,22 @@ var _hmt = _hmt || [];
 <li>将回调函数当作构造函数来使用，直接使用this添加数据</li>
 <li>也可以通过 $scope.age 添加数据</li>
 <li><p>在html中使用指令的时候，格式变为：DemoController as demo</p>
-<p>  angular.module(‘testApp’, []).controller(‘DemoController’, function($scope) {</p>
-<pre><code>  // 添加模型属性
-  this.name = &#39;Jack&#39;;
-  $scope.age = 18;
-</code></pre><p>  });</p>
-</li>
+<pre><code>  angular.module(&#39;testApp&#39;, []).controller(&#39;DemoController&#39;, function($scope) {
+      添加模型属性
+      this.name = &#39;Jack&#39;;
+      $scope.age = 18;
+  });
+</code></pre></li>
 </ul>
 </li>
 <li><p><strong>安全的方式（依赖注入、针对代码压缩）</strong></p>
 <ul>
 <li><p>根据指定的参数名直接获取到想要的参数，而非根据参数的顺序</p>
-<p>  // 第二个参数：数组，最后一项表示回调函数，除此之外其他的参数表示依赖的参数列表<br>  app.controller(“DemoController”, [“$scope”, “$log”, function($scope, $log) {</p>
-<pre><code>  $log.log(&quot;打印日志了&quot;);
-</code></pre><p>  }]);</p>
-<p><strong>依赖注入</strong>（原理：通过函数tostring方法，然后用正则匹配数组参数）</p>
+<p>  // 第二个参数：数组，最后一项表示回调函数，除此之外其他的参数表示依赖的参数列表</p>
+<pre><code>  app.controller(&quot;DemoController&quot;, [&quot;$scope&quot;, &quot;$log&quot;, function($scope, $log) {
+      $log.log(&quot;打印日志了&quot;);
+  }]);
+</code></pre><p><strong>依赖注入</strong>（原理：通过函数tostring方法，然后用正则匹配数组参数）</p>
 </li>
 </ul>
 <ol>
@@ -330,18 +333,15 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 </li>
-<li><p>在控制器中通过 $routeParmas 来获取路由的参数</p>
+<li><p>在控制器中通过 <code>$routeParmas</code> 来获取路由的参数</p>
 </li>
-<li>在页面中通过 ng-view 指令， 来展示路由对应的内容</li>
+<li>在页面中通过 <code>ng-view</code> 指令， 来展示路由对应的内容</li>
 </ol>
 <h3 id="数据绑定方式"><a href="#数据绑定方式" class="headerlink" title="数据绑定方式"></a>数据绑定方式</h3><p><strong>双向数据绑定</strong></p>
-<pre><code>数据模型的值发生改变，就会导致页面值的改变；页面值的改变，也会导致数据模型中值的改变，
-这种相互影响的关系就是双向数据绑定。
-如 `ng-model`
-</code></pre><p><strong>单向数据绑定</strong></p>
-<pre><code>数据模型的值发生改变，导致页面的值发生改变
-如 &amp;#123;{exp}}
-</code></pre><h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ul>
+<p>数据模型的值发生改变，就会导致页面值的改变；页面值的改变，也会导致数据模型中值的改变，<br>这种相互影响的关系就是双向数据绑定。<br>如 <code>ng-model</code></p>
+<p><strong>单向数据绑定</strong></p>
+<p>数据模型的值发生改变，导致页面的值发生改变<br>如 `&#123;{exp}}</p>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ul>
 <li>作用：格式化数据/筛选数据的小工具</li>
 <li>语法：在数据模型的后面加上 “| 过滤器名称: 参数”</li>
 <li>说明：过滤器通过 | 指定，参数通过 : 指定</li>
@@ -434,9 +434,9 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>Expression to evaluate upon click. (Event object is available as $event)</p>
 </blockquote>
-<pre><code>$scope.cc = function (name, $event) {
-    $event.stopPropagation();
-};
+<pre><code>    $scope.cc = function (name, $event) {
+        $event.stopPropagation();
+    };
 </code></pre><blockquote>
 <p> 那一夜，我听了一宿梵唱，不为参悟，只为寻你的一丝气息。 </p>
 <p> 那一月，我转过所有经轮，不为超度，只为触摸你的指纹。 </p>
