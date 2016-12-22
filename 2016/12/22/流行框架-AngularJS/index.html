@@ -1,0 +1,671 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>AngularJS | 读书笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Roy-K">
+    
+    <meta name="description" content="AngularJS标签：MVC、模块化(编程)、自动化双向数据绑定、语义化标签、指令、依赖注入等等。
+优势：
+
+Angular 最大程度的减少了页面上的 DOM 操作
+让 JavaScript 中专注业务逻辑的代码
+代码结构更合理
+维护成本更低
+通过简单的指令把页面结构和数据结合
+通过自定义指令实现">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
+
+  
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="读书笔记">读书笔记</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="https://roy-k.github.io/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/22/流行框架-AngularJS/" title="AngularJS" itemprop="url">AngularJS</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2016-12-22T07:03:26.780Z" itemprop="datePublished">2016年 12月 22日</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AngularJS"><span class="toc-number">1.</span> <span class="toc-text">AngularJS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要技术点"><span class="toc-number">1.1.</span> <span class="toc-text">主要技术点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-与-MVVM"><span class="toc-number">1.1.1.</span> <span class="toc-text">MVC 与 MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#directive-指令"><span class="toc-number">1.1.2.</span> <span class="toc-text">directive - 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#expression-表达式"><span class="toc-number">1.1.3.</span> <span class="toc-text">expression - 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#module-模块"><span class="toc-number">1.1.4.</span> <span class="toc-text">module - 模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#controller-控制器"><span class="toc-number">1.1.5.</span> <span class="toc-text">controller - 控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制器（controller）-创建方式"><span class="toc-number">1.1.6.</span> <span class="toc-text">控制器（controller） -创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scope"><span class="toc-number">1.1.7.</span> <span class="toc-text">$scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service-服务"><span class="toc-number">1.1.8.</span> <span class="toc-text">service - 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#router-路由"><span class="toc-number">1.1.9.</span> <span class="toc-text">router - 路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据绑定方式"><span class="toc-number">1.1.10.</span> <span class="toc-text">数据绑定方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤器"><span class="toc-number">1.1.11.</span> <span class="toc-text">过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块之间的依赖关系"><span class="toc-number">1.1.12.</span> <span class="toc-text">模块之间的依赖关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在Angular中使用”jQuery”"><span class="toc-number">1.1.13.</span> <span class="toc-text">在Angular中使用”jQuery”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS的一般开发流程"><span class="toc-number">1.2.</span> <span class="toc-text">AngularJS的一般开发流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模块的划分"><span class="toc-number">1.2.1.</span> <span class="toc-text">模块的划分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见需求"><span class="toc-number">1.3.</span> <span class="toc-text">常见需求</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="AngularJS"><a href="#AngularJS" class="headerlink" title="AngularJS"></a>AngularJS</h1><pre><code>标签：MVC、模块化(编程)、自动化双向数据绑定、语义化标签、指令、依赖注入等等。
+</code></pre><p>优势：</p>
+<ul>
+<li>Angular 最大程度的减少了页面上的 DOM 操作</li>
+<li>让 JavaScript 中专注业务逻辑的代码</li>
+<li>代码结构更合理</li>
+<li>维护成本更低</li>
+<li>通过简单的指令把页面结构和数据结合</li>
+<li>通过自定义指令实现组件化编程</li>
+</ul>
+<p>劣势：</p>
+<ul>
+<li><p>不利于SEO，但是有其他解决方案</p>
+<ul>
+<li><p>html5mode </p>
+<ul>
+<li>简单来说，去除#只需要在路由中配置$locationProvider.html5Mode(true); 开启html5模式，url会自动去除#以及.html后缀达到最优。但这时存在问题：f5刷新会404找不到页面，原因是f5会把url提交到后端获取资源，而html5模式优化后的url在后端并不存在这样一个资源，直接访问这个链接会连主页面都找不到，自然就会404。以上链接给出的方案是nodejs后端的方案，我们的方案是用springMVC后端，不过原理都是类似的：后端不认识这个链接，我们就把这个错误的连接重定向到原本带#的连接，对于后端来说就是一个正常的访问，而url中的#在浏览器端会再次被html5模式给去除。</li>
+</ul>
+</li>
+<li><p>抓虫<br>  抓虫：输出内容完整的 HTML<br>  用户：输出没有内容的 HTML，然后 JS 自己再通过 API 请求内容渲染。</p>
+<p>  贴一下 jsgen 处理抓虫的代码：<br>  var robotReg = new RegExp(‘Baiduspider|Googlebot|BingBot|Slurp!’, ‘i’);</p>
+<p>  if (robotReg.test(req.useragent)) {</p>
+<pre><code>  //是搜索引擎爬虫，输出静态页面
+</code></pre><p>  }</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>AngularJS主要考虑的是构建CRUD应用，一般是：单页面的应用程序。</strong></p>
+<h2 id="主要技术点"><a href="#主要技术点" class="headerlink" title="主要技术点"></a>主要技术点</h2><pre><code>1. ajax
+2. 锚点的使用（window.loacation.hash#)
+</code></pre><p><strong>SPA</strong></p>
+<pre><code>单页Web应用（single page web application，SPA），就是只有一个Web页面的应用，是加载单个HTML 页面并在用户与应用程序交互时动态更新该页面的Web应用程序。
+</code></pre><ul>
+<li>无刷新加载页面，避免了不必要的跳转和重复渲染</li>
+<li>更好的用户体验，让用户在web app感受native app的速度和流畅</li>
+<li>减少了请求体积，节省流量，加快页面响应速度</li>
+<li>可以选择性的保留状态，如音乐网站，切换页面时不会停止播放歌曲</li>
+</ul>
+<h3 id="MVC-与-MVVM"><a href="#MVC-与-MVVM" class="headerlink" title="MVC 与 MVVM"></a>MVC 与 MVVM</h3><p>MVC（Model–view–controller）是一种软件架构模式，一种应用程序的设计思想。</p>
+<p>MVC是观察者模式(Observer), 策略模式(Strategy)和组合模式(Composite)三个设计模式的演变.</p>
+<p>把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。</p>
+<ul>
+<li><p>Model 进行数据的存储和数据的处理方法（CRUD）</p>
+</li>
+<li><p>View 展示数据</p>
+<p>  在Angluar中，View指的是在页面中被 ng-app 指令包裹的HTML代码</p>
+</li>
+<li><p>Controller 是应用程序中处理用户交互的部分</p>
+<p>  通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据，是数据和视图的桥梁</p>
+<p>  例如：移动端和PC端两个View，共享<strong>同一个</strong>Model<br>  在MVC设计模式中， Model 响应用户请求并返回响应数据，<br>  View 负责格式化数据并把它们呈现给用户，业务逻辑和表示层分离，<br>  同一个 <strong>Model</strong> 可以被不同的 View <strong>重用</strong>，所以大大提高了代码的可重用性。</p>
+</li>
+</ul>
+<p><strong>MVVM</strong></p>
+<p>是将controller换为viewModel  </p>
+<p>Angular中大量的使用$scope,盖过了C（控制器）的概念，所以很多人将其称为MVVM框架</p>
+<p>$scope实际就是MVVM模式中的VM（视图模型）</p>
+<h3 id="directive-指令"><a href="#directive-指令" class="headerlink" title="directive - 指令"></a>directive - 指令</h3><pre><code>- AngularJS 有一套完整的、可扩展的、用来帮助 Web 应用开发的指令集
+
+- 指令是DOM元素上的一些标记，让NG给DOM元素添加一些特殊的行为
+
+    常用指令：
+        关键控制:ng-app ng-controller
+        逻辑: ng-if/switch ng-repeat
+        页面元素: ng-show/hide ng-class ng-cloak ng-src/href 
+        事件: ng-click / ng-submit / ng-dblclick / ng-blur / ng-focus / ng-change
+        数据: ng-model ng-bind
+        表单: ng-checked ng-selected ng-disabled ng-readonly
+
+- 所有指令兼容HTML5标准的指令 即可以使用 `data-` 开头
+</code></pre><p><strong>自定义指令</strong></p>
+<pre><code>- 自定义指令用于扩展和增强HTML
+- 用于封装一些常用而且共用的功能
+- AngularJS仍然有DOM操作,所有的DOM操作都应该集中在自定义指令中
+</code></pre><ol>
+<li><p>创建</p>
+<p> 语法：模块.directive(“指令名称”, callback)</p>
+<pre><code> 第一个参数：表示指令的名称，使用驼峰命名法，在视图中使用时修改为`-`分割的形式
+ 第二个参数：是一个回调函数，让用户设置该指令的行为
+ angular.module(&quot;testApp&quot;, [])
+     .directive(&quot;myBtn&quot;, [function() {
+         return {};
+ }]);
+</code></pre></li>
+<li><p>常用属性</p>
+<ul>
+<li>template: 模板，设置自定义指令显示的内容</li>
+<li><p>templateUrl: 可以指定一个模板的id或者url地址</p>
+<pre><code>  - id：模板的id，需要给模板设置type属性为：type=&quot;text/ng-template&quot;，该模板需要在ng-app内
+  - url: 一个页面，页面中用于存放模板标签 （agnular会异步请求该路径，注意跨域问题）
+</code></pre></li>
+<li><p>restrict: </p>
+<pre><code>      - 属性（A）、元素（E）、类（C）、注释（M）-有固定格式directive:m
+</code></pre></li>
+<li><p>link: 该属性的值是一个函数，这个函数给当前指令提供了事件，该函数有3个参数</p>
+<pre><code>  - scope: 表示当前指令的作用域，用来暴露一些数据，类似与控制器的scope，只在当前指令中有效
+  - element: 表示一个jqLite对象，是自定义指令所在标签对应的jqLite对象
+  - attribute: 表示自定义指令所在标签的所有指令属性的集合
+</code></pre></li>
+<li><p>replace: 为true时，会将自定义指令所在的标签替换为模板字符串</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="expression-表达式"><a href="#expression-表达式" class="headerlink" title="expression - 表达式"></a>expression - 表达式</h3><pre><code>从JS角度，使用运算符和数据 连接起来的有 结果 的代码就是：表达式
+`&amp;#123;{expression}}`
+</code></pre><h3 id="module-模块"><a href="#module-模块" class="headerlink" title="module - 模块"></a>module - 模块</h3><p>模块是一个容器包含了应用程序的不同组成部分，并且这些内容必须要依附于一个模块<br><code>angular.module(moduleName, [])</code></p>
+<h3 id="controller-控制器"><a href="#controller-控制器" class="headerlink" title="controller - 控制器"></a>controller - 控制器</h3><ol>
+<li>初始视图中使用的数据</li>
+<li>通过$scope对象把数据模型或函数行为暴露给视图</li>
+<li>监视模型的变化，做出相应的逻辑处理</li>
+</ol>
+<p>最佳实践：</p>
+<ul>
+<li>不要试图去复用controller， 一个控制器一般只负责一小块试图</li>
+<li>不要在controller中操作DOM， 这不是控制器的职责</li>
+<li>不要在controller里面做数据格式化，ng有很好用的表单控件</li>
+<li>不要在controller里面做数据过滤操作，ng有$filter服务</li>
+<li>一般来说，controller是不会互相调用的，控制器之间的交互会通过事件进行</li>
+</ul>
+<h3 id="控制器（controller）-创建方式"><a href="#控制器（controller）-创建方式" class="headerlink" title="控制器（controller） -创建方式"></a>控制器（controller） -创建方式</h3><ol>
+<li><p><strong>低版本</strong></p>
+<p> 使用全局函数创建控制器，会造成：全局污染</p>
+</li>
+<li><p><strong>面向对象方式</strong></p>
+<ul>
+<li>将回调函数当作构造函数来使用，直接使用this添加数据</li>
+<li>也可以通过 $scope.age 添加数据</li>
+<li><p>在html中使用指令的时候，格式变为：DemoController as demo</p>
+<p>  angular.module(‘testApp’, []).controller(‘DemoController’, function($scope) {</p>
+<pre><code>  // 添加模型属性
+  this.name = &#39;Jack&#39;;
+  $scope.age = 18;
+</code></pre><p>  });</p>
+</li>
+</ul>
+</li>
+<li><p><strong>安全的方式（依赖注入、针对代码压缩）</strong></p>
+<ul>
+<li><p>根据指定的参数名直接获取到想要的参数，而非根据参数的顺序</p>
+<p>  // 第二个参数：数组，最后一项表示回调函数，除此之外其他的参数表示依赖的参数列表<br>  app.controller(“DemoController”, [“$scope”, “$log”, function($scope, $log) {</p>
+<pre><code>  $log.log(&quot;打印日志了&quot;);
+</code></pre><p>  }]);</p>
+<p><strong>依赖注入</strong>（原理：通过函数tostring方法，然后用正则匹配数组参数）</p>
+</li>
+</ul>
+<ol>
+<li>获取到依赖项(参数)列表</li>
+<li>查找依赖项所对应的对象</li>
+<li><p>代码执行时，将其注入</p>
+<pre><code> /**
+  [提取参数]
+  @param  {Function} fn [回调函数]
+  @return {[type]}      [参数列表数组]
+  */
+ function extractArgs(fn) {
+     var r = /^[^\(]*\(\s*([^\)]*)\)/;
+     var args = r.exec( fn.toString() );
+     return args[1].split(&#39;,&#39;);
+ }
+
+ extractArgs(function($scope, $log) {});
+ // 方法的返回值：[&quot;$scope&quot;, &quot;$log&quot;]
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<h3 id="scope"><a href="#scope" class="headerlink" title="$scope"></a>$scope</h3><ul>
+<li>$scope是一个POJO（plain old javascript object）</li>
+<li>$scope提供了一些工具方法 $watch / $apply</li>
+<li>$scope是一个树形结构，与DOM标签平行</li>
+<li>子$scope对象会继承$scope上的属性和方法</li>
+<li>每一个Angular应用只有一个根$scope对象 一般位于ng-app上</li>
+<li>$scope可以传播事件，类似DOM事件，可以向上也可以向下</li>
+<li>$scope不仅是MVC的基础，也是后面实现双向数据绑定的基础</li>
+<li>可以用angular.element($0).scope() 进行调试</li>
+</ul>
+<p><strong>$scope的生命周期</strong></p>
+<ol>
+<li>Creation</li>
+<li>Wtacher registration</li>
+<li>Model mutation</li>
+<li>Mutation observation</li>
+<li>Scope destruction</li>
+</ol>
+<h3 id="service-服务"><a href="#service-服务" class="headerlink" title="service - 服务"></a>service - 服务</h3><ul>
+<li>公用的业务逻辑集中存放的一段代码</li>
+<li>主要用于对重复业务的封装，达到复用的目的</li>
+<li>一般主要封装针对于Model的CRUD</li>
+<li>服务中的代码只会在Angular创建服务的时候，执行一次</li>
+<li>服务给控制器提供了一些额外的功能</li>
+<li>$log / $http 等以$开头的服务都是Angular的内置服务</li>
+</ul>
+<p><strong>自定义服务</strong></p>
+<ul>
+<li>创建服务的语法，与创建控制器的语法相同</li>
+<li>service方法中的函数参数，是一个构造函数，通过this添加成员</li>
+<li><p>控制器中通过服务的名字（实例对象）就可以使用服务的属性和方法</p>
+<pre><code>  app.service(&quot;TestService&quot;, [function() {
+      // this.get = function() {};
+      // this.set = function() {};
+      // this.update = function() {};
+      // this.delete = function() {};
+  }]);
+
+  // 在控制器中使用自定义服务
+  app.controller(&#39;DemoController&#39;, [&#39;$scope&#39;, &#39;TestService&#39;, 
+      function($scope, TestService) {
+      console.log(TestService);
+  }]);
+</code></pre></li>
+</ul>
+<h3 id="router-路由"><a href="#router-路由" class="headerlink" title="router - 路由"></a>router - 路由</h3><ol>
+<li>引入angular-route.js</li>
+<li>在模块中引入’ngRoute’</li>
+<li><p>在模块中调用 .config() 方法进行路由的配置</p>
+<ol>
+<li>$routeProvider</li>
+<li>$routeProvider.when()<ol>
+<li>para1: 路由的路径</li>
+<li>对象<ol>
+<li>templateUrl 指定模板的地址</li>
+<li>指定当前路由的内容由哪一个控制器来管理</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>在控制器中通过 $routeParmas 来获取路由的参数</p>
+</li>
+<li>在页面中通过 ng-view 指令， 来展示路由对应的内容</li>
+</ol>
+<h3 id="数据绑定方式"><a href="#数据绑定方式" class="headerlink" title="数据绑定方式"></a>数据绑定方式</h3><p><strong>双向数据绑定</strong></p>
+<pre><code>数据模型的值发生改变，就会导致页面值的改变；页面值的改变，也会导致数据模型中值的改变，
+这种相互影响的关系就是双向数据绑定。
+如 `ng-model`
+</code></pre><p><strong>单向数据绑定</strong></p>
+<pre><code>数据模型的值发生改变，导致页面的值发生改变
+如 &amp;#123;{exp}}
+</code></pre><h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ul>
+<li>作用：格式化数据/筛选数据的小工具</li>
+<li>语法：在数据模型的后面加上 “| 过滤器名称: 参数”</li>
+<li>说明：过滤器通过 | 指定，参数通过 : 指定</li>
+</ul>
+<ol>
+<li><p>filter过滤器 -过滤数据 - 从多条数据中筛选出符合规则的数据</p>
+<pre><code>`&lt;p ng-repeat=&quot;item in data | filter:{completed: true} track by $index&quot;&gt;&lt;/p&gt;`
+</code></pre></li>
+<li><p>currency 过滤器 - 将数字转化为货币的形式显示</p>
+<pre><code>`&lt;p&gt;&amp;#123;{12345678.333 | currency: &quot;￥&quot;}}&lt;/p&gt;`
+</code></pre></li>
+<li><p>date 过滤器 - 将整数形式的日期转化为常用日期形式</p>
+<pre><code>   `&lt;p&gt;&amp;#123;{1412345678901 | date: &quot;yyyy-MM-dd hh:mm:ss&quot;}}&lt;/p&gt;`
+</code></pre></li>
+<li><p>limitTo 过滤器 - 限制显示的文字个数</p>
+<pre><code>:5 表示展示文字长度为：5，:2 表示开始的索引号
+`&lt;p&gt;&amp;#123;{&#39;是谁在唱歌，温暖了寂寞&#39; | limitTo:5:2}}&lt;/p&gt;`
+</code></pre></li>
+<li><p>orderBy 过滤器 - 对数据进行排序</p>
+</li>
+<li><pre><code>排序的属性，如果是倒序排列，属性名前加-，例如：-age
+`&lt;p ng-repeat=&quot;item in data | orderBy: &#39;age&#39;&quot;&gt;&lt;/p&gt;`
+</code></pre></li>
+</ol>
+<h3 id="模块之间的依赖关系"><a href="#模块之间的依赖关系" class="headerlink" title="模块之间的依赖关系"></a>模块之间的依赖关系</h3><p>一般有三个模块：</p>
+<ol>
+<li>app.js：主模块，应用程序的入口，实现统一调用所有其他模块</li>
+<li>controller.js：控制器模块，处理视图中与用户交互的功能，即：处理业务逻辑</li>
+<li>service.js：服务模块，抽象数据操作，提供数据的增删改查</li>
+</ol>
+<p>每个模块都会放在一个独立的js文件中，因此，每个文件都会有一个模块，<br>    即：angular.module(“模块名”, []);</p>
+<p>建立模块之间的联系：<br>    在 app.js 主模块中，引入：controller 和 service这两个模块</p>
+<h3 id="在Angular中使用”jQuery”"><a href="#在Angular中使用”jQuery”" class="headerlink" title="在Angular中使用”jQuery”"></a>在Angular中使用”jQuery”</h3><pre><code>    // 获取 jqLite 对象
+    var $ = angular.element;
+    $(document).ready(function() { });
+</code></pre><ol>
+<li>jqLite 中只实现了jQuery的部分功能</li>
+<li>jqLite中选择器只能是DOM对象</li>
+<li>尽量使用ng中提供的功能</li>
+</ol>
+<h2 id="AngularJS的一般开发流程"><a href="#AngularJS的一般开发流程" class="headerlink" title="AngularJS的一般开发流程"></a>AngularJS的一般开发流程</h2><ol>
+<li>引入 angular.js 文件</li>
+<li>创建模块：angular.module(‘模块名’, [])</li>
+<li>在页面中指定ng-app=”模块名”，告诉NG管理指定的页面部分</li>
+<li>创建控制器：模块名.controller(‘控制器名’, function() {})</li>
+<li>在页面中指定ng-controller=”控制器名”，指定管理内容的控制器</li>
+<li>建模（根据页面原型抽象出数据模型），最终得到视图模型（ViewModel）</li>
+<li>将抽象好的数据，添加到 $scope中，即：暴露数据和行为给视图</li>
+<li>在页面中使用 ng-model 或者 &#123;{}} 拿到并绑定数据</li>
+</ol>
+<h3 id="模块的划分"><a href="#模块的划分" class="headerlink" title="模块的划分"></a>模块的划分</h3><p>1 按照功能模块划分（常用，便于多人开发）</p>
+<pre><code>比如：登录模块、注册模块、编写博客 等等不同的功能模块
+每个功能模块都有自己的 Model View Controller 对应的文件
+</code></pre><p>2 按照文件类型划分</p>
+<pre><code>将所有的文件放到3个文件夹中：M、V、C
+</code></pre><h2 id="常见需求"><a href="#常见需求" class="headerlink" title="常见需求"></a>常见需求</h2><ul>
+<li><p>解决浏览器优先解析img的src属性的问题</p>
+<pre><code>  `&lt;img ng-src=&quot;&amp;#123;{item.iamges.large}}&quot; alt=&quot;&quot;&gt;`
+</code></pre></li>
+<li><p>$http.jsonp</p>
+<p>  参考<a href="http://www.cnblogs.com/HeJason/p/5604835.html" title="angular Jsonp的坑" target="_blank" rel="external">http://www.cnblogs.com/HeJason/p/5604835.html</a></p>
+<p>  angular 为了解决跨域问题 一些第三方接口会提供jsonp来调用，需要使用callback=JSON_CALLBACK来处理 </p>
+<p>  这个时候问题来了，有些借口是不支持callback里面带有点语法的，最典型的就是豆瓣了，而callback=JSON<em>CALLBACK 会被 angular转换成 callback = angular.callbacks.</em>[id]这种形式，</p>
+<p>  自定义jsonp或http拦截器</p>
+</li>
+<li><p>手动实现异步数据操作后更新视图 $scope.$apply()</p>
+</li>
+</ul>
+<ul>
+<li><p>获取页面中的锚点值不包含：# $location.url()</p>
+</li>
+<li><p>渲染html标签的数据</p>
+<ol>
+<li>$sce / ngSanitize模块</li>
+<li><code>ng-bind-html=&quot;name&quot;</code></li>
+</ol>
+</li>
+<li><p>ng-repeat 指令 track by $index 解决，数据重复的问题</p>
+</li>
+</ul>
+<ul>
+<li><p>解决页面闪烁问题</p>
+<p>  方式一： 将引用angularjs文件放到head中（阻塞）<br>  方式二： 使用 ng-bind 指令<br>  方式三： 使用 ng-cloak 指令</p>
+</li>
+<li><p>阻止事件冒泡</p>
+</li>
+</ul>
+<p>在Angular中已经对一些ng事件如ngClick,ngBlur,ngCopy,ngCut,ngDblclick…中加入了一个变量叫做$event.</p>
+<p>如ngClick在官方文档是这么描述的：</p>
+<blockquote>
+<p>Expression to evaluate upon click. (Event object is available as $event)</p>
+</blockquote>
+<pre><code>$scope.cc = function (name, $event) {
+    $event.stopPropagation();
+};
+</code></pre><blockquote>
+<p> 那一夜，我听了一宿梵唱，不为参悟，只为寻你的一丝气息。 </p>
+<p> 那一月，我转过所有经轮，不为超度，只为触摸你的指纹。 </p>
+<p> 那一年，我磕长头拥抱尘埃，不为朝佛，只为贴着了你的温暖。 </p>
+<p> 那一世，我翻遍十万大山，不为修来世，只为路中能与你相遇。 </p>
+<p> 那一瞬，我飞升成仙，不为长生，只为佑你平安喜乐。</p>
+<p> 《那一天，那一月，那一年，那一世》–仓央嘉措。</p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Angular/">Angular</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/流行框架/">流行框架</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/22/流行框架-AngularJS/" data-title="AngularJS | 读书笔记" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/12/20/JS面向对象-正则表达式/"  title="正则表达式">
+ <strong>旧一篇:</strong><br/> 
+ <span>正则表达式
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 高宽 Roy</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>

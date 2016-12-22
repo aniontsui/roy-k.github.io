@@ -4,15 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>DOM 尺寸相关属性 | 读书笔记</title>
+    <title>原型与继承 | 读书笔记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Roy-K">
     
-    <meta name="description" content="DOM 尺寸相关三大家族offset 偏移，偏移量    成员:offsetWidth   offsetHeight  offsetLeft  offsetTop 可获得外联样式,返回数值
-    offsetParent    返回该对象距离最近的带有定位的父级        
+    <meta name="description" content="原型与继承面向对象面向对象是对面向过程的一个封装
+优势
+封装代码，使代码更好维护
 
-offsetLe">
+减少全局污染
+
+将功能相近的代码组织到一起维护方便，找错方便
+实现方式
+
+将数据与功能封装成函数(方法)
+
+将相关的功能绑定到一起(对象)
+
+将功能进行分组(模块)
+
+
+原型1. 对象的原型是什么 构造函数的prot">
     
     
     
@@ -82,7 +95,7 @@ var _hmt = _hmt || [];
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/02/页面交互与事件处理-DOM尺寸相关/" title="DOM 尺寸相关属性" itemprop="url">DOM 尺寸相关属性</a>
+      <a href="/2016/12/02/JS面向对象-原型与继承/" title="原型与继承" itemprop="url">原型与继承</a>
   </h1>
   <p class="article-time">
     <time datetime="2016-12-01T16:00:00.000Z" itemprop="datePublished">2016年 12月 2日</time>
@@ -93,83 +106,168 @@ var _hmt = _hmt || [];
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title"></strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DOM-尺寸相关"><span class="toc-number">1.</span> <span class="toc-text">DOM 尺寸相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三大家族"><span class="toc-number">1.1.</span> <span class="toc-text">三大家族</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#offset-偏移，偏移量"><span class="toc-number">1.1.1.</span> <span class="toc-text">offset 偏移，偏移量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scroll-滚动"><span class="toc-number">1.1.2.</span> <span class="toc-text">scroll 滚动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#client-原意客户端-在这里可视区"><span class="toc-number">1.1.3.</span> <span class="toc-text">client 原意客户端  在这里可视区</span></a></li></ol></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原型与继承"><span class="toc-number">1.</span> <span class="toc-text">原型与继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象"><span class="toc-number">1.1.</span> <span class="toc-text">面向对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型"><span class="toc-number">1.2.</span> <span class="toc-text">原型</span></a></li></ol></li></ol>
 		</div>
 		
-		<h1 id="DOM-尺寸相关"><a href="#DOM-尺寸相关" class="headerlink" title="DOM 尺寸相关"></a>DOM 尺寸相关</h1><h2 id="三大家族"><a href="#三大家族" class="headerlink" title="三大家族"></a>三大家族</h2><h3 id="offset-偏移，偏移量"><a href="#offset-偏移，偏移量" class="headerlink" title="offset 偏移，偏移量"></a>offset 偏移，偏移量</h3><pre><code>    成员:offsetWidth   offsetHeight  offsetLeft  offsetTop 可获得外联样式,返回数值
-    offsetParent    返回该对象距离最近的带有定位的父级        
-</code></pre><ol>
-<li><p>offsetLeft 和 offsetTop 获取元素距离最近的有定位父级元素的偏移量.</p>
-<pre><code> - offsetLeft以元素border左上角为基准;
- - style.left以margin左上角为基准; 仅能获得行内样式;
-</code></pre></li>
-<li><p>offsetHeight和offsetWidth，获取网页内容高度和宽度(包括滚动条等边线，会随窗口的显示大小改变)。</p>
-<pre><code> - offsetHeight = clientHeight(真实宽度+padding值) + 滚动条 + 边框。
- - var w= document.documentElement.offsetWidth || document.body.offsetWidth || 0;
- - var h= document.documentElement.offsetHeight || document.body.offsetHeight || 0;
-</code></pre></li>
-<li><p>类比</p>
+		<h1 id="原型与继承"><a href="#原型与继承" class="headerlink" title="原型与继承"></a>原型与继承</h1><h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><pre><code>面向对象是对面向过程的一个封装
+</code></pre><p><strong>优势</strong></p>
+<pre><code>封装代码，使代码更好维护
+
+减少全局污染
+
+将功能相近的代码组织到一起维护方便，找错方便
+</code></pre><p><strong>实现方式</strong></p>
+<ol>
+<li><p>将数据与功能封装成函数(方法)</p>
+</li>
+<li><p>将相关的功能绑定到一起(对象)</p>
+</li>
+<li><p>将功能进行分组(模块)</p>
+</li>
+</ol>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><pre><code>1. 对象的原型是什么 构造函数的prototype属性的值
+
+2. 如何获得原型对象: 构造函数的prototype属性 和 实例的__proto__
+</code></pre><p><strong>结论:</strong></p>
+<ol>
+<li><p>任何函数都可以作为构造函数，函数默认就有一个prototype 属性</p>
+</li>
+<li><p>由构造函数创建出来的对象会默认链接到其构造函数的prototype属性上 – 对象可以使用其构造函数prototype属性中的成员.</p>
+</li>
+<li><p>函数的prototype属性的类型是: object</p>
+</li>
+<li><p>原型的作用: 数据共享–继承</p>
+</li>
+<li><p>新创建的空对象继承自原型对象</p>
+</li>
+<li><p>对象在被创建的那一刻, 原型已经定下来了(new 设置),  </p>
+<p> p.<strong>proto</strong> 与 Person.prototype 的区别</p>
 <ul>
-<li>offsetParent    始终是获得的是最近的定位的父级元素，如果没有父级元素没有定位的话，则默认是以body为准。</li>
-<li>parentNode 仅仅是父元素，与定没定位没有关系</li>
+<li>唯一的区别: 从不同角度来访问 原型对象 (实例/构造函数)    </li>
+<li>F.prototype 原型属性        – 构造函数F的 </li>
+<li>f.<strong>proto</strong> 原型对象        – 对象f的        </li>
 </ul>
 </li>
-<li><p>offsetParent</p>
-<pre><code> - 返回该对象距离最近的带有定位的父级
-</code></pre></li>
 </ol>
-<h3 id="scroll-滚动"><a href="#scroll-滚动" class="headerlink" title="scroll 滚动"></a>scroll 滚动</h3><pre><code>    成员:scrollWidth      scrollHeight    scrollLeft    scrollTop    
-</code></pre><ol>
-<li><p>scrollWidth：width+padding</p>
-</li>
-<li><p>scrollHeight:  height+padding(<strong>但是包括内容超出的部分</strong>);</p>
-<p>比较:offsetWidth: width+padding+border;</p>
-</li>
-<li><p>scrollLeft:  页面向左滚动或是卷去的部分</p>
-<p>=window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0</p>
-</li>
-<li><p>scrollTop:  页面向上滚动或是卷去的部分 ;</p>
-<p>=window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0</p>
+<p><strong>原型链中的三角关系</strong></p>
+<pre><code>实例.__proto__ === 原型对象
+构造函数.prototype === 原型对象
+原型对象.constructor === 构造函数
+</code></pre><p>注意: <strong>proto</strong>是一个非标准的属性, 就是不能用于实际的项目开发中 – 用于调试</p>
+<p><strong>new的内部原理</strong></p>
+<pre><code>1. 创建一个新的空对象
+2. 将构造函数的作用域赋给新对象（所以this就指向了这个新对象）
+3. 把空对象的内部原型指向构造函数的原型对象
+4. 当构造函数执行完成后,如果没有return的话,那么把当前空对象返回
+5. **其实new操作主要是把原型链跟实例的this关联起来**
+</code></pre><p><strong>函数 / 构造函数 / 对象 / 实例</strong></p>
+<pre><code>函数: 代码复用
+
+构造函数: 创建对象代码的复用
+
+实例: 由构造函数创建出来的对象
+
+对象: 泛指javascript中的复杂数据类型
+</code></pre><p>对象成员: </p>
+<pre><code>属性: 属性值是一个数据
+方法: 属性值是一个函数--如果函数挂载在一个对象上,作为对象的一个属性, 就称它为对象的方法
+</code></pre><hr>
+<p><strong>封装</strong></p>
+<pre><code>函数 -- 对 具体过程 的封装
+对象 -- 对 行为/数据 的封装
+</code></pre><p><strong>javascript 继承</strong></p>
+<pre><code>子类可以使用从父类继承的属性和方法
+
+（原型链角度）
+每一个对象都有一条原型链存在，所谓的原型继承就是同个任何的手段来改变原型链的层次结构，
+使对象访问到原型链中的所有原型对象的属性和方法，从而实现了继承
+</code></pre><p><strong>属性修改和读取的区别</strong></p>
 <ul>
-<li>offsetTop、offsetLeft、</li>
-<li>设置或获取位于给定对象左边界与窗口中目前可见内容的边之间的距离</li>
+<li><p>获取操作：</p>
+<p>  遵循属性查找原则：即沿着原型链一层层往上找。</p>
+</li>
+<li><p>赋值操作（只与当前对象有关）：</p>
+<p>  只会操作对象本身，如果对象中没有该属性则创建该属性，并赋值；如果对象中有，则修改</p>
+</li>
 </ul>
+<hr>
+<ol>
+<li><p>原型继承</p>
+<p> 如果需要让一个对象拥有某些属性和方法，可以把这些属性和方法放到原型对象中，因为对象会继承自原型对象，所以就获得了该属性和方法。</p>
+<ol>
+<li>P.prototype.do = fn;        // 利用对象的动态性, 给原型添加成员</li>
+<li>Person.prototype = {f1:fn,f2:fn,        // 利用覆盖原型对象的方式添加成员<pre><code> constructor:Person;        // 如果用到了, 需要手动添加
+</code></pre> }    </li>
+<li>利用混入式继承, 给原型添加extend方法来扩展: Person.prototype.extend=fn            </li>
+</ol>
+</li>
+<li><p>混入式继承</p>
+<p> 一个对象是可以继承自多个对象的,相对于把其他对象的属性放到了 该对象中(遍历赋值)</p>
+<p> for(var k in o1) {</p>
+<pre><code> obj[k] = o1[k];
+</code></pre><p> }</p>
+<p> obj.extend = function(o) {    // 封装继承的方式</p>
+<pre><code> for(var k in o) {
+     this[k] = o[k];
+ }
+</code></pre><p> }</p>
+</li>
+<li><p>经典继承</p>
+<p> p1 = Object.create(p);</p>
+</li>
+<li><p>寄生式继承</p>
+<p> var p = new Person(‘’); Person(a){ a return {a:a} }</p>
+</li>
+<li><p>寄生组合式继承</p>
+</li>
+<li><p>借用构造函数等</p>
+</li>
+<li><p>工厂模式 </p>
+<p> var p1 = Person(‘’); Person(a){ a return {a:a} }</p>
 </li>
 </ol>
-<h3 id="client-原意客户端-在这里可视区"><a href="#client-原意客户端-在这里可视区" class="headerlink" title="client 原意客户端  在这里可视区"></a>client 原意客户端  在这里可视区</h3><pre><code>    成员:clientWidth         clientHeight    clientLeft      clientTop
-</code></pre><ol>
-<li><p>clientWidth:width+padding(获得元素的可视尺寸,无兼容问题)</p>
-<p> 获取浏览器窗口的内部宽度:window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0</p>
-<p> window.screen.width: 返回电脑的分辨率,和浏览器没有关系    </p>
-</li>
-<li><p>clientHeight:height+padding</p>
-<p> 获取浏览器窗口的内部高度:window.innerHeight ||document.documentElement.clientHeight || document.body.clientHeight || 0</p>
-</li>
-<li><p>clientLeft:元素左侧<strong>边框</strong>的宽度</p>
-</li>
-<li><p>clientTop:元素顶部<strong>边框</strong>的宽度</p>
-</li>
-</ol>
+<p><strong>静态成员与实例成员</strong>：</p>
+<pre><code>构造函数上的成员，可以通过构造函数直接访问，是静态成员
+
+如果静态成员与实例成员需要一个相同的函数
+推荐的做法： 给静态成员添加这个方法，然后实例成员之间调用静态成员的方法
+</code></pre><p><strong>多态</strong></p>
+<pre><code>把不同的子类对象都当作父类来看，可以屏蔽不同子类对象之间的差异，写出通用的代码，做出通用的编程，以适应需求的不断变化。 
+
+动物 animal = new 子类(); // 子类：麻雀、狗、猫、猪、狐狸...
+动物 animal = new 狗(); 
+
+animal.叫();
+</code></pre><p><strong>几个方法</strong></p>
+<p>instanceof ： 判断<strong>构造函数的prototype属性的值</strong>是否在被检测对象的原型链上<br>    对象 instanceof 构造函数<br>    如果创建和检测是在不同页面中，则不可用</p>
+<p>isPrototypeOf ： 判断一个<strong>对象</strong>是否存在于另一个对象的原型链上<br>    prototypeObj.isPrototypeOf(obj2)</p>
+<p>hasOwnProperty ： 判断一个<strong>属性</strong>是不是该对象自身上的<br>    xiaowang.hasOwnProperty(‘name’)</p>
+<p>constructor ： 查看一个对象的构造函数<br>    o.constructor</p>
+<p>arguments ： 每一个函数中都有一个arguments</p>
+<p>arguments.length        实参的个数</p>
+<p>F.length            形参的个数</p>
+<p>arguments.callee        返回函数自身：</p>
+<hr>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/DOM/">DOM</a>
+  <span></span> <a href="/tags/原型与继承/">原型与继承</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/页面交互与事件处理/">页面交互与事件处理</a>
+  <a class="article-category-link" href="/categories/JS面向对象/">JS面向对象</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/12/02/页面交互与事件处理-DOM尺寸相关/" data-title="DOM 尺寸相关属性 | 读书笔记" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/12/02/JS面向对象-原型与继承/" data-title="原型与继承 | 读书笔记" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -179,18 +277,18 @@ var _hmt = _hmt || [];
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/12/02/页面交互与事件处理-DOM-API/" title="DOM-API">
+ <a href="/2016/12/02/JS面向对象-数组相关/" title="数组方法汇总">
   <strong>新一篇:</strong><br/>
   <span>
-  DOM-API</span>
+  数组方法汇总</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/12/02/JS面向对象-严格模式/"  title="严格模式">
+<a href="/2016/12/02/JS面向对象-函数与作用域/"  title="函数与作用域">
  <strong>旧一篇:</strong><br/> 
- <span>严格模式
+ <span>函数与作用域
 </span>
 </a>
 </div>
