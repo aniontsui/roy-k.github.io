@@ -1,0 +1,419 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>读书笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Roy-K">
+    
+    <meta name="description" content="数组数组是值的有序集合，每一个元素在数组中都有数字位置编号，也就是索引。数组中可以含有不同类型的元素，甚至是对象或其他数组
+创建
+字面量         var arr = [];
+
+构造函数        var arr = new Array();
+
+
+
+方法检测数组Array.isArray(">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
+
+  
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="读书笔记">读书笔记</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="https://roy-k.github.io/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/22/2. 数组相关/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2016-12-22T06:41:47.959Z" itemprop="datePublished">2016年 12月 22日</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数组"><span class="toc-number">1.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建"><span class="toc-number">1.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.2.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检测数组"><span class="toc-number">1.2.1.</span> <span class="toc-text">检测数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转换方法"><span class="toc-number">1.2.2.</span> <span class="toc-text">转换方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#栈方法"><span class="toc-number">1.2.3.</span> <span class="toc-text">栈方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#队列方法"><span class="toc-number">1.2.4.</span> <span class="toc-text">队列方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作方法"><span class="toc-number">1.2.5.</span> <span class="toc-text">操作方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位置方法"><span class="toc-number">1.2.6.</span> <span class="toc-text">位置方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序"><span class="toc-number">1.2.7.</span> <span class="toc-text">排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串化"><span class="toc-number">1.2.8.</span> <span class="toc-text">字符串化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代方法"><span class="toc-number">1.2.9.</span> <span class="toc-text">迭代方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缩小方法"><span class="toc-number">1.2.10.</span> <span class="toc-text">缩小方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-number">1.3.</span> <span class="toc-text">扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二维数组与稀疏数组"><span class="toc-number">1.3.1.</span> <span class="toc-text">二维数组与稀疏数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组与对象"><span class="toc-number">1.3.2.</span> <span class="toc-text">数组与对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串和数组"><span class="toc-number">1.3.3.</span> <span class="toc-text">字符串和数组</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><pre><code>数组是值的有序集合，每一个元素在数组中都有数字位置编号，也就是索引。数组中可以含有不同类型的元素，甚至是对象或其他数组
+</code></pre><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ol>
+<li><p>字面量         var arr = [];</p>
+</li>
+<li><p>构造函数        var arr = new Array();</p>
+</li>
+</ol>
+<hr>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h3><pre><code>Array.isArray(arr);
+
+arr instanceof Array;
+
+({}).toString.apply(arr) === &#39;[object Array]&#39;;  （稳定）
+
+arr.constructor === Array;
+</code></pre><h3 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h3><pre><code>toString()     返回以逗号分隔的字符串
+
+valueOf()    返回对象
+
+toLocalString()    区别很小,如果数组调用这个方法,那么数组每一项都会调用这个方法
+</code></pre><h3 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h3><pre><code>push()        接收任意数量的参数加到尾部,**返回数组长度值**
+
+pop()        从数组末尾移除最后一项，减少数组的length值，**返回该数组被删除的最后一项**
+
+splice(s,len)    删除从指定位置开始指定数量的元素
+</code></pre><h3 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h3><pre><code>shift()        移除并**返回第一项**
+
+unshift()    从数组前端添加任意个参数，并**返回新数组的长度**
+
+splice(s,0,cont)    添加到任意位置
+
+**数组旋转:**
+
+arr.push(arr.shift()); // 将数组第一个剪切加到最后
+
+arr.unshift(arr.pop()); // 将数组最后一个剪切加到第一个
+</code></pre><h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><pre><code>concat()    创建副本连接新数组        **原数组不变**
+
+slice(s,e)        复制起始到终点的部分    **原数组不变**
+
+splice(s,len,content)    替换对应部分,返回被替换的部分    **原数组被修改**
+
+delete arr[i]    删除元素，数组长度不变，该位置变为undefined
+
+arr.length -= 1    删除最后一个元素
+</code></pre><h3 id="位置方法"><a href="#位置方法" class="headerlink" title="位置方法"></a>位置方法</h3><pre><code>indexOf()
+
+lastIndexOf()
+</code></pre><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><pre><code>reverse()    反转    **原数组被修改**
+
+sort(fn)    排序    **原数组被修改**
+</code></pre><h3 id="字符串化"><a href="#字符串化" class="headerlink" title="字符串化"></a>字符串化</h3><pre><code>join(separator)        返回通过分隔符连接数组每一个元素的字符串结果
+</code></pre><h3 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h3><blockquote>
+<p> callback：function(item, index, array) {}<br> thisArg 用于指定回调执行的上下文，即this</p>
+</blockquote>
+<p><strong>for循环</strong></p>
+<pre><code>普通遍历
+</code></pre><p><strong>for in</strong> （会遍历出原型属性）</p>
+<p><strong>array.forEach(callback[, thisArg])</strong></p>
+<pre><code>接收两个参数,一个是函数，另一个是运行该函数的作用域对象。
+
+第一个参数函数接收三个参数 数组项的值 item，值的位置 idnex ，数组本身 array
+</code></pre><p><strong>every(callback[, thisArg])</strong>        与    返回boolean值</p>
+<pre><code>测试数组中的每个元素都满足测试
+</code></pre><p><strong>some(callback[, thisArg])</strong>        或    返回boolean值</p>
+<pre><code>测试数组中是否有元素满足callback测试
+</code></pre><p><strong>arr.filter(callback[, thisArg])</strong>    过滤 生成新数组        <strong>原数组不变</strong></p>
+<pre><code>收集通过函数测试callback的书组元素。
+</code></pre><p><strong>array.map(callback[, thisArg])</strong>        映射        <strong>原数组不变</strong></p>
+<pre><code>使用函数f修改每个数组的每个元素。按顺序收集f的每个返回值，并返回这个新组成的数组。
+</code></pre><h3 id="缩小方法"><a href="#缩小方法" class="headerlink" title="缩小方法"></a>缩小方法</h3><blockquote>
+<p> callback:function(previousValue, currentValue, index, array){}<br> initialValue:可以指定初始值，（<strong>如果指定</strong>，第一次循环中previousValue为初始值，currentValue为数组第一项）</p>
+</blockquote>
+<p><strong>reduce(callback,[initialValue])</strong>        从左向右，使用函数r聚集数组的每个元素。可以可选的制定一个初始值v。 <strong>原数组不变</strong></p>
+<p><strong>reduceRight(callback,[initialValue])</strong>    从右向左 <strong>原数组不变</strong></p>
+<hr>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="二维数组与稀疏数组"><a href="#二维数组与稀疏数组" class="headerlink" title="二维数组与稀疏数组"></a>二维数组与稀疏数组</h3><p><strong>二维数组</strong></p>
+<pre><code>数组的元素也是数组
+</code></pre><p><strong>稀疏数组</strong></p>
+<pre><code>并不含有从0开始的连续索引，一般length比实际元素个数大
+</code></pre><hr>
+<h3 id="数组与对象"><a href="#数组与对象" class="headerlink" title="数组与对象"></a>数组与对象</h3><ol>
+<li><p>相同：</p>
+<p> 都可以继承，数组也是对象，都可以添加属性</p>
+</li>
+<li><p>不同</p>
+<p> 数组自动更新length<br> 数组按索引访问比对象访问快<br> 数组对象继承Array.prototype上的大量数组方法</p>
+</li>
+</ol>
+<hr>
+<h3 id="字符串和数组"><a href="#字符串和数组" class="headerlink" title="字符串和数组"></a>字符串和数组</h3><pre><code>var str = &#39;hello world&#39;;
+
+Array.prototype.join.call(str,&#39;-&#39;);
+</code></pre><p>“Destiny is not a matter of chance; it is a matter of choice. It is not a thing to be waited for, it is a thing to be achieved.”</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/22/2. 数组相关/" data-title="读书笔记" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/22/3. 对象/" title="">
+  <strong>新一篇:</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/22/1. js基础/"  title="">
+ <strong>旧一篇:</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 高宽 Roy</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>

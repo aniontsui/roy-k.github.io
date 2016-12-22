@@ -1,0 +1,728 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>读书笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Roy-K">
+    
+    <meta name="description" content="函数与作用域函数是一块JavaScript代码，被定义一次，但可执行和调用多次。 
+
+JS中的函数也是对象，所以JS函数可以像其它对象那样操作和传递，所以我们也常叫JS中的函数为函数对象。
+
+创建1. 函数声明        会被预解析
+
+2. 函数表达式
+
+    1. function vari">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
+
+  
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="读书笔记">读书笔记</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="https://roy-k.github.io/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/22/4. 函数与作用域/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2016-12-22T06:41:47.961Z" itemprop="datePublished">2016年 12月 22日</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数与作用域"><span class="toc-number">1.</span> <span class="toc-text">函数与作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this与调用模式"><span class="toc-number">1.1.</span> <span class="toc-text">this与调用模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数属性与arguments和返回值"><span class="toc-number">1.1.1.</span> <span class="toc-text">函数属性与arguments和返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态成员与扩充类型的功能"><span class="toc-number">1.1.2.</span> <span class="toc-text">静态成员与扩充类型的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常"><span class="toc-number">1.1.3.</span> <span class="toc-text">异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递归"><span class="toc-number">1.2.</span> <span class="toc-text">递归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包和作用域"><span class="toc-number">1.3.</span> <span class="toc-text">闭包和作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#作用域"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">作用域</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES3执行上下文"><span class="toc-number">1.3.1.</span> <span class="toc-text">ES3执行上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回调"><span class="toc-number">1.3.2.</span> <span class="toc-text">回调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块"><span class="toc-number">1.3.3.</span> <span class="toc-text">模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#级联链式编程"><span class="toc-number">1.3.4.</span> <span class="toc-text">级联链式编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#柯里化"><span class="toc-number">1.3.5.</span> <span class="toc-text">柯里化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#记忆"><span class="toc-number">1.3.6.</span> <span class="toc-text">记忆</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h1 id="函数与作用域"><a href="#函数与作用域" class="headerlink" title="函数与作用域"></a>函数与作用域</h1><pre><code>函数是一块JavaScript代码，被定义一次，但可执行和调用多次。 
+
+JS中的函数也是对象，所以JS函数可以像其它对象那样操作和传递，所以我们也常叫JS中的函数为函数对象。
+</code></pre><hr>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><pre><code>1. 函数声明        会被预解析
+
+2. 函数表达式
+
+    1. function variable
+            var f1 = function(){}
+
+    2. IIFE(immediately invoked function expression)
+            (function(){}())
+
+    3. first-class function
+            return function(){}
+
+    4. NFE(named function expression)
+            var f = function foo(){}    用于递归
+
+3. Function构造器
+
+    var fn = new Function(&#39;p&#39;,&#39;to do;&#39;);    省略new 相当与eval
+</code></pre><p><strong>参数</strong></p>
+<pre><code>1. 把函数参数看作是变量，只能在函数内部使用
+
+2. 函数调用时参数传入顺序不能颠倒
+
+3. 参数的值是在函数被调用的时候通过传入的参数设置的值
+
+4. 函数调用时不传入参数，则函数内部获取参数的值为：undefined
+</code></pre><hr>
+<h2 id="this与调用模式"><a href="#this与调用模式" class="headerlink" title="this与调用模式"></a>this与调用模式</h2><pre><code>调用一个函数会暂停当前函数的执行，传递控制权和参数给新函数。每个函数还接收两个附加参数：this和arguments
+</code></pre><p><strong>返回</strong></p>
+<pre><code>一个函数总是会返回一个值，如果没有显示指定，则返回undefined。构造函数另说
+
+- this的最终指向是那个调用它的对象
+- 如果一个函数中包含多个对象，尽管这个函数式被最外层的对象所调用，this指向的也只是它的上一级对象
+- 分析this指向问题的时候，只看函数是怎么被调用的，而不管函数在哪创建的！
+</code></pre><ol>
+<li><p>方法调用模式</p>
+<p> o.method();<br> 函数是一个对象的属性时，称为方法。this绑定到该对象 方法在原型链上时，this也是对象本身</p>
+<p> get/set方法的this（ES5）    this也是对象本身</p>
+<pre><code> get/set访问器不是对象的属性，而是属性的特性。大家一定要分清楚。
+ 特性只有内部才用，因此在javaScript中不能直接访问他们。
+ 为了表示特性是内部值用两队中括号括起来表示如[[Value]]。    
+</code></pre></li>
+</ol>
+<ol>
+<li><p>函数调用模式</p>
+<p> foo()；<br> 函数并非一个普通对象的属性时，执行函数，this指向window，严格模式指向undefined，nodejs指向globle</p>
+</li>
+<li><p>构造器调用模式</p>
+<p> new Foo();<br> 使用new 构造函数时，this指向新生成的对象，<br> 如果有return的行为：</p>
+<pre><code> 1. 如果return后面是**基本数据类型**，会被忽略
+ 2. 如果return后面跟的是一个有效的引用类型，那么会返回return该对象；
+</code></pre></li>
+</ol>
+<p><strong>例子</strong></p>
+<blockquote>
+<pre><code>var length = 10;
+function fn() {
+    console.log(this.length);
+}
+var obj = {
+    length:5,
+    method:function (fn) {
+        fn();
+        arguments[0]();
+    }
+};
+obj.method(fn,123);
+</code></pre></blockquote>
+<ol>
+<li><p>call、apply调用模式（借用方法/上下文调用）</p>
+<p> func.call(o);<br> js是函数式的面向对象，函数可以拥有方法</p>
+<p> apply/call方法让我们构建一个参数数组传递给调用函数，允许我们选择this的值</p>
+<p> 他们的第一个参数是<strong>要绑定this的值</strong>，剩余参数为要传入的参数（apply要求为数组或伪数组）</p>
+<p> apply</p>
+<pre><code> 一般在目标函数只需要n个参数列表，而不接收一个数组的形式，可以通过apply的方式巧妙的解决问题
+</code></pre><p> function foo(x,y) {</p>
+<pre><code> console.log(x,y,this);
+</code></pre><p> }<br> foo.call(100,1,2);      // 1,2,Number(100)<br> foo.apply(true,[3,4]);  // 3,4,Booloean(true)<br> foo.apply(null);        // undefined undefined window<br> foo.apply(undefined);   // undefined undefined window</p>
+<p> 技巧：</p>
+<pre><code> 传入null/undefined时 this指向window    严格模式 指向null/或undefined自身
+ 1. Math.max.apply(null,arr)
+ 2. Array.prototype.join.call(arguments,&#39;-&#39;);
+ 3. DOM伪数组合并，用于同时绑定事件
+</code></pre></li>
+</ol>
+<ol>
+<li><p>bind方法与this</p>
+<p> bind()最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的this值。</p>
+<p> function f(){<br>   return this.a;<br> }<br> var g =  f.bind({a : “test”});<br> console.log(g());  //  test<br> var o = {a : 37, f : f, g : g};<br> console.log(o.f(), o.g());  //  37,  test</p>
+<ul>
+<li>bind与currying（见柯里化）</li>
+<li>bind与new    （看不出来有什么好搞的）</li>
+</ul>
+</li>
+</ol>
+<p><strong>bind方法模拟</strong></p>
+<blockquote>
+<pre><code>if (!Function.prototype.bind) { 
+  Function.prototype.bind = function(oThis) { 
+    if(typeof this !== &#39;function&#39;) { 
+      //  closest  thing  possible  to  the  ECMAScript  5 
+      //  internal  IsCallable  function 
+      throw new TypeError(&#39;What is trying to be bound is not  callable&#39;); 
+    } 
+    var aArgs = Array.prototype.slice.call(arguments,  1), 
+        fToBind = this, 
+        fNOP  = function() {}, 
+        fBound = function() { 
+          return fToBind.apply(this instanceof fNOP? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments))); 
+        }; 
+    fNOP.prototype = this.prototype; 
+    fBound.prototype = new fNOP(); 
+    return fBound; 
+  }; 
+}
+</code></pre></blockquote>
+<hr>
+<h3 id="函数属性与arguments和返回值"><a href="#函数属性与arguments和返回值" class="headerlink" title="函数属性与arguments和返回值"></a>函数属性与arguments和返回值</h3><pre><code>foo(1, 2);                                     
+foo.length;  //  3 形参个数
+foo.name;  //  &quot;foo&quot;        函数名
+
+function foo(x, y, z)  { 
+    arguments.length;  // 2         实参个数
+
+    arguments[0];  // 1 
+
+    arguments[0] = 10;            改写**严格模式无效**
+    x;  // change to 10; 
+
+    arguments[2] = 100;              未传参数，无效
+    z;  // still undefined !!! 
+
+    arguments.callee === foo; // true 严格模式不能使用
+
+} 
+</code></pre><hr>
+<h3 id="静态成员与扩充类型的功能"><a href="#静态成员与扩充类型的功能" class="headerlink" title="静态成员与扩充类型的功能"></a>静态成员与扩充类型的功能</h3><p>Fn.method = fn(){}    // 静态方法</p>
+<p>Fn.prototype.method = fn(){}    // 扩充方法</p>
+<hr>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><blockquote>
+<pre><code>try {
+    // 可能出现错误的代码
+} catch ( e ) {
+    // 出现错误会执行这里的代码
+} finally { // 可选
+    // 无论是否出现异常, 最后执行
+}
+</code></pre></blockquote>
+<pre><code>// 手动抛出异常
+throw new Error(&quot;别瞎搞&quot;);
+throw &quot;这都行？？？&quot;;
+</code></pre><hr>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><pre><code>1. 什么叫递归？函数自己调用自己
+
+2. 如何写一个递归（要解决的问题）
+
+    1. 什么时候递归
+        - 化归思想：将要解决的问题转化为已经解决的问题（已知的处理方法）
+    2. 什么时候跳出递归
+        - 就是找到：递归结束的条件，就是找临界值（已知的条件） 
+</code></pre><p><strong>普通递归：</strong></p>
+<blockquote>
+<pre><code>var fi = function (n) {
+    count++;
+    if(n&lt;3) {
+        return 1;
+    }
+    return fi(n-1) + fi(n-2);
+};
+</code></pre></blockquote>
+<p><strong>闭包缓存方式：</strong></p>
+<blockquote>
+<pre><code>var ffi = (function () {
+    var memo = [0,1,1];
+    return function (n) {
+        count++;
+        if (memo[n] !== undefined) {
+            return memo[n];
+        }else {
+            memo[n] = arguments.callee(n-1) +arguments.callee(n-2);
+            return memo[n];
+        }
+    };
+}());
+console.log(ffi(5));
+</code></pre></blockquote>
+<p><strong>闭包缓存封装：</strong></p>
+<blockquote>
+<pre><code>var memoizer = function (memo,formula) {
+    var recur = function (n) {
+        count++;
+        var result = memo[n];
+        if (typeof result !== &#39;number&#39;) {
+            result = formula(recur,n);
+            memo[n] = result;
+        }
+        return result;
+    };
+    return recur;
+};
+var fib = memoizer([0,1,1], function (recur,n) {
+    return recur(n-1) + recur(n-2);
+});
+console.log(fib(5));
+</code></pre></blockquote>
+<p><strong>尾递归：</strong></p>
+<pre><code>函数返回自身递归调用的结果： js没有提供尾递归优化？
+</code></pre><blockquote>
+<pre><code>var ffi = function (n, a1, a2) {
+    count++;
+    if(n&lt;3) {
+        return a2;
+    }else {
+        return ffi(n-1, a2, a1+a2);
+    }
+};
+console.log(ffi(5,1,1));
+</code></pre></blockquote>
+<p>阶乘</p>
+<blockquote>
+<pre><code>var factorial = function factorial(i,a) {
+    a = a || 1;
+    if(i&lt;2) {
+        return a;
+    }
+    return factorial(i-1, a*i);
+};
+console.log(factorial(10));
+</code></pre></blockquote>
+<hr>
+<h2 id="闭包和作用域"><a href="#闭包和作用域" class="headerlink" title="闭包和作用域"></a>闭包和作用域</h2><p><strong>闭包</strong></p>
+<p>函数记住并访问了其所在的词法作用域，叫做闭包现象，而此时函数对作用域的引用叫做闭包。<br><strong>闭包就是引用</strong></p>
+<p>一个闭包就是一个函数和被创建的函数中的作用域对象的组合；</p>
+<p>之所以说所有回调函数都会产生闭包现象，也是因为这个回调函数被传给了另外一个函数的参数，所以在另外一个函数的作用域消失之前，回调函数所在的词法作用域都被记住了，由于回调函数一定会被执行，所以回调函数所在的词法作用域至少被访问了一次，也就是至少访问回调函数本身，而这个对作用域的引用就是闭包。</p>
+<p>闭包的作用：</p>
+<pre><code>1. 记住了函数所在词法作用域的变量
+2. 能够访问函数所在词法作用域的变量
+3. 创建模块（设计私有变量、共有函数等）
+</code></pre><p>缺点：</p>
+<pre><code>1. 空间浪费
+2. 内存泄露
+3. 性能消耗
+</code></pre><p><strong>缓存实现</strong></p>
+<pre><code>var createCache = function(){
+    var internalCache = {};
+    var arr = [];
+
+    return function (k, v) {
+        if(v) {
+            if(!internalCache[k]) {
+                if(arr.length &gt;= 50) {
+                    var deleteKey = arr.shift();
+                    delete internalCache[k];
+                }
+                arr.push(k);
+            }
+            internalCache[k] = v;
+        } else {
+            return internalCache[k];
+        }
+    };
+};
+</code></pre><p>jQuery中的实现</p>
+<pre><code>function createCache() {
+    var keys = [];
+
+    function cache( key, value ) {
+        // Use (key + &quot; &quot;) to avoid collision with native prototype properties (see Issue #157)
+        // 使用(key + &quot; &quot;) 是为了避免和原生（本地）的原型中的属性冲突
+        if ( keys.push( key + &quot; &quot; ) &gt; Expr.cacheLength ) {
+            // Only keep the most recent entries
+            // 只保留最新存入的数据
+            delete cache[ keys.shift() ];
+        }
+        // 1 给 cache 赋值
+        // 2 把值返回
+        return (cache[ key + &quot; &quot; ] = value);
+        // cache[key + &quot;&quot;] = value;
+        // return value;
+    }
+    return cache;
+}
+
+var typeCache = createCache();
+
+// 调用函数的作用就是用来设置缓存
+typeCache(&quot;cls&quot;, &quot;stra&quot;);
+// 获取缓存的数据
+typeCache[&quot;cls&quot;];
+</code></pre><h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><pre><code>作用域控制着变量与参数的可见性与生命周期，减少了命名冲突，并提供了自动内存管理
+</code></pre><ol>
+<li>函数才会形成作用域</li>
+<li>JavaScript的作用域是词法作用域</li>
+<li>词法作用域：变量(变量和函数)的作用范围 在代码写出来的就已经决定, 与运行时无关</li>
+<li>函数内部可以访问函数外部的变量（函数外部不能访问函数内部的变量）</li>
+<li>每个函数都会形成一个作用域，如果函数被其他函数包裹，包裹函数也有作用域，一直往上直到全局环境。这样就形成了一条作用域链。</li>
+<li>变量搜索原则：从当前链开始查找直到0级链，从高到低查找</li>
+</ol>
+<p>当定义了一个函数，当前的作用域链就保存起来，并且成为函数的内部状态的一部分。    </p>
+<p><strong>命名冲突问题</strong></p>
+<p>如果一个函数和一个变量出现同名，此时：</p>
+<ol>
+<li><p>如果是变量只声明了，但没有赋值，变量名会被忽略</p>
+</li>
+<li><p>如果变量声明同时也被赋值了，此时：</p>
+<p> a 如果是在赋值之前，获取到的是函数</p>
+<p> b 如果是在赋值之后，获取到的是变量的值</p>
+</li>
+</ol>
+<p>函数参数跟函数体内部的变量重名的情况：（VO的填充顺序）</p>
+<ol>
+<li><p>如果是声明的变量没有赋值，忽略</p>
+</li>
+<li><p>如果是声明的函数，此时函数会把同名的参数覆盖</p>
+</li>
+</ol>
+<p><strong>例子</strong></p>
+<blockquote>
+<pre><code>function Foo() {
+    getName = function(){ alert(1); };
+    return this; 
+}
+</code></pre></blockquote>
+<pre><code>Foo.getName = function() { alert(2); };
+Foo.prototype.getName = function(){ alert(3); };
+var getName = function() { alert(4); };
+function getName(){ alert(5); }
+</code></pre><blockquote>
+<p>   Foo.getName();             // ? 静态方法<br>    getName();                 // ? 函数调用<br>    Foo().getName();           // ? 函数调用<br>    getName();                 // ? 函数调用<br>    new Foo.getName();         // ? 优先级 静态方法<br>    new Foo().getName();       // ? 优先级 实例 方法调用<br>    new new Foo().getName();   // ? 优先级 实例 方法调用</p>
+</blockquote>
+<hr>
+<h3 id="ES3执行上下文"><a href="#ES3执行上下文" class="headerlink" title="ES3执行上下文"></a>ES3执行上下文</h3><pre><code>执行上下文：Execution Context EC
+
+变量对象：Variable Object VO
+    是一个抽象概念中的“对象”，它用于存储执行上下文中的
+        1. 变量
+        2. 函数声明
+        3. 函数参数
+
+函数中的激活对象：Active Object AO
+</code></pre><p><strong>VO的填充顺序</strong></p>
+<pre><code>1. 函数参数（若为传入，初始化该参数值为undefined）
+2. 函数声明（若发生命名冲突，会覆盖）
+3. 变量声明（初始化变量值为undefined，若发生命名冲突，被被忽略）
+        函数表达式相当于赋值，不会影响VO
+</code></pre><p>代码执行阶段会进行赋值</p>
+<hr>
+<h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><p>异步执行，满足条件后，调用并传入参数。利用函数传参及变量作用域。</p>
+<hr>
+<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p><strong>1.沙箱模型（隔离）（单文件）</strong></p>
+<p>优势：</p>
+<ol>
+<li>使用 立即执行的函数表达式 的好处就是：减少一个函数名称的污染，将全局变量污染降到最低</li>
+<li>代码在函数内部执行，形成了一个独立且外部无法访问的空间，这样就使得函数外部代码不会影响到函数内部的代码执行</li>
+<li>如果外部需要，则可以根据需求返回适当的数据。可以把window作为参数传入</li>
+</ol>
+<pre><code>(function(w) {
+    // 独立的环境
+    function do() {}
+    do.prototype.say = function() {};
+
+    // 暴露到全局环境中
+    w.i$ = do;
+})(window);        //使用传参的方式，1.减少了作用域链的查找，2.便于压缩
+}).call(this);    underscore.js 中使用这样的方式代替
+</code></pre><p><strong>2.命名空间</strong></p>
+<p>在js中式通过对象来模拟实现不同的命名空间，通过对象层级来分隔不同的子命名空间。</p>
+<pre><code>var $$ = {
+    ele:{},
+    sty:{}
+}
+</code></pre><p>或者</p>
+<p>(fn(){<br>    window.$.ele={}<br>}())</p>
+<p><strong>3.模块化</strong></p>
+<hr>
+<h3 id="级联链式编程"><a href="#级联链式编程" class="headerlink" title="级联链式编程"></a>级联链式编程</h3><p>有一些方法没有返回值，例如一些设置属性的方法，如果我们让这些方法返回this，就可以连续的调用方法设置属性，就形成了级联。</p>
+<hr>
+<h3 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h3><p>函数也是值，从而我们可以操作函数值，把函数和参数结合，构造出一个新的函数。变相的改造参数列表和计算规则。</p>
+<ol>
+<li>bind与currying</li>
+</ol>
+<blockquote>
+<pre><code>function add(a,b,c) {
+        return a + b + c;
+    }
+    var func = add.bind(null,100);
+    console.log(func(1,2));     // 103
+    var func2 = func.bind(null,200);
+    console.log(func2(10));     // 310
+
+    function getConfig(color,size,otherOptions) {
+        console.log(color,size,otherOptions);
+    }
+    var defaultConfig = getConfig.bind(null,&quot;#c00&quot;,&quot;1024*768&quot;);
+    defaultConfig(&#39;123&#39;);       // #c00 1024*768 123
+</code></pre></blockquote>
+<hr>
+<h3 id="记忆"><a href="#记忆" class="headerlink" title="记忆"></a>记忆</h3><p>即缓存（见闭包递归）；</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/22/4. 函数与作用域/" data-title="读书笔记" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/22/5. 面向对象/" title="">
+  <strong>新一篇:</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/22/3. 对象/"  title="">
+ <strong>旧一篇:</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 高宽 Roy</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>

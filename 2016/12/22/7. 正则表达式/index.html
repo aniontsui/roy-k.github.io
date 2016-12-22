@@ -4,30 +4,27 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>前端种树 | 读书笔记</title>
+    <title>读书笔记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Roy-K">
     
-    <meta name="description" content="前端种树
+    <meta name="description" content="正则表达式正则基础
+.     任意字符（除换行符以外）
 
-整理知识，建立体系
+\d    数字0-9
 
+\D    非\d，即不是数字0-9的字符
 
+\w    数字0-9 或字母a-z及A-Z 或下划线
 
-0. 开发环境搭建
-[ ] IDE与环境
-[ ] 常用软件
+\W    非\w
 
-1. 页面与布局
-[x] Html Html5
-[x] css css3 less
-[ ] ps
-[ ] Canvas
+\s    空格符、tab、换页符、换行符
 
-2. 页面交互与事件处理
-[x] DOM-API
-[x] DOM-API(尺寸">
+\S    非\s
+
+\t \r \n \">
     
     
     
@@ -97,10 +94,10 @@ var _hmt = _hmt || [];
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/18/前端种树/" title="前端种树" itemprop="url">前端种树</a>
+      <a href="/2016/12/22/7. 正则表达式/" title="" itemprop="url"></a>
   </h1>
   <p class="article-time">
-    <time datetime="2016-12-18T01:17:49.164Z" itemprop="datePublished">2016年 12月 18日</time>
+    <time datetime="2016-12-22T06:41:47.966Z" itemprop="datePublished">2016年 12月 22日</time>
   </p>
 </header>
 	<div class="article-content">
@@ -108,84 +105,147 @@ var _hmt = _hmt || [];
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title"></strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端种树"><span class="toc-number">1.</span> <span class="toc-text">前端种树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-开发环境搭建"><span class="toc-number">1.1.</span> <span class="toc-text">0. 开发环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-页面与布局"><span class="toc-number">1.2.</span> <span class="toc-text">1. 页面与布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-页面交互与事件处理"><span class="toc-number">1.3.</span> <span class="toc-text">2. 页面交互与事件处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-移动端与响应式开发"><span class="toc-number">1.4.</span> <span class="toc-text">3. 移动端与响应式开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-常用前端库"><span class="toc-number">1.5.</span> <span class="toc-text">4. 常用前端库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-JS面向对象与设计模式"><span class="toc-number">1.6.</span> <span class="toc-text">5. JS面向对象与设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-模块化与组件化开发"><span class="toc-number">1.7.</span> <span class="toc-text">6. 模块化与组件化开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-前端构建"><span class="toc-number">1.8.</span> <span class="toc-text">7. 前端构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-流行框架"><span class="toc-number">1.9.</span> <span class="toc-text">8. 流行框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Node-Js"><span class="toc-number">1.10.</span> <span class="toc-text">9. Node.Js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-混合移动开发"><span class="toc-number">1.11.</span> <span class="toc-text">10. 混合移动开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-开发与部署"><span class="toc-number">1.12.</span> <span class="toc-text">11. 开发与部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-性能优化与代码重构"><span class="toc-number">1.13.</span> <span class="toc-text">12. 性能优化与代码重构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-计算机知识"><span class="toc-number">1.14.</span> <span class="toc-text">13. 计算机知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-思考与进步"><span class="toc-number">1.15.</span> <span class="toc-text">15. 思考与进步</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.</span> <span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则基础"><span class="toc-number">1.1.</span> <span class="toc-text">正则基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#范围符号"><span class="toc-number">1.2.</span> <span class="toc-text">范围符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊字符转义"><span class="toc-number">1.3.</span> <span class="toc-text">特殊字符转义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组"><span class="toc-number">1.4.</span> <span class="toc-text">分组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前瞻"><span class="toc-number">1.5.</span> <span class="toc-text">前瞻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重复"><span class="toc-number">1.6.</span> <span class="toc-text">重复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三个Flag"><span class="toc-number">1.7.</span> <span class="toc-text">三个Flag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则对象属性"><span class="toc-number">1.8.</span> <span class="toc-text">正则对象属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则对象方法"><span class="toc-number">1.9.</span> <span class="toc-text">正则对象方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string类型与正则相关的方法"><span class="toc-number">1.10.</span> <span class="toc-text">string类型与正则相关的方法</span></a></li></ol></li></ol>
 		</div>
 		
-		<h1 id="前端种树"><a href="#前端种树" class="headerlink" title="前端种树"></a>前端种树</h1><blockquote>
-<ul>
-<li>整理知识，建立体系</li>
-</ul>
+		<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="正则基础"><a href="#正则基础" class="headerlink" title="正则基础"></a>正则基础</h2><ol>
+<li><p>.     任意字符（除换行符以外）</p>
+</li>
+<li><p>\d    数字0-9</p>
+</li>
+<li><p>\D    非\d，即不是数字0-9的字符</p>
+</li>
+<li><p>\w    数字0-9 或字母a-z及A-Z 或下划线</p>
+</li>
+<li><p>\W    非\w</p>
+</li>
+<li><p>\s    空格符、tab、换页符、换行符</p>
+</li>
+<li><p>\S    非\s</p>
+</li>
+<li><p>\t \r \n \v \f    tab 回车 垂直制表符 换页符</p>
+</li>
+</ol>
+<h2 id="范围符号"><a href="#范围符号" class="headerlink" title="范围符号"></a>范围符号</h2><ol>
+<li><p>[…]    字符范围</p>
+</li>
+<li><p>[^..]    字符范围之外</p>
+</li>
+<li><p>^        行首</p>
+</li>
+<li><p>$        行尾</p>
+</li>
+<li><p>\b        零宽单词边界</p>
+</li>
+<li><p>\B        非\b</p>
+</li>
+</ol>
+<h2 id="特殊字符转义"><a href="#特殊字符转义" class="headerlink" title="特殊字符转义"></a>特殊字符转义</h2><p>\        /\^abc/.test(‘^abc’);</p>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><ol>
+<li><p>(x)        分组，并记录匹配到的字符串</p>
+<pre><code> (abc){3}  abc重复3次
+</code></pre></li>
+<li><p>\n        表示使用分组符(x)匹配到字符串</p>
+</li>
+<li><p>(?:x)    仅分组，即不记录            /(?:abc)(def)\1/</p>
+</li>
+<li><p>$1 <strong>反向引用</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>‘2015-12-25’.replace(/(\d{4}-(\d{2}-(\d{2})/g,’$2/$3/$1’)</p>
+<p>2015-12-25  至  12/25/2015</p>
 </blockquote>
-<hr>
-<h2 id="0-开发环境搭建"><a href="#0-开发环境搭建" class="headerlink" title="0. 开发环境搭建"></a>0. 开发环境搭建</h2><ul>
-<li>[ ] IDE与环境</li>
-<li>[ ] 常用软件</li>
+<h2 id="前瞻"><a href="#前瞻" class="headerlink" title="前瞻"></a>前瞻</h2><ol>
+<li><p>前瞻</p>
+<ul>
+<li><p>exp(?=assert)        正向前瞻    后面等于条件</p>
+</li>
+<li><p>exp(?!assert)        负向前瞻    后面不等于条件</p>
+</li>
 </ul>
-<h2 id="1-页面与布局"><a href="#1-页面与布局" class="headerlink" title="1. 页面与布局"></a>1. 页面与布局</h2><ul>
-<li>[x] Html Html5</li>
-<li>[x] css css3 less</li>
-<li>[ ] ps</li>
-<li>[ ] Canvas</li>
-</ul>
-<h2 id="2-页面交互与事件处理"><a href="#2-页面交互与事件处理" class="headerlink" title="2. 页面交互与事件处理"></a>2. 页面交互与事件处理</h2><ul>
-<li>[x] DOM-API</li>
-<li>[x] DOM-API(尺寸相关)</li>
-<li>[x] 事件</li>
-<li>[ ] 浏览器与兼容性</li>
-<li>[x] 异步与Ajax</li>
-</ul>
-<h2 id="3-移动端与响应式开发"><a href="#3-移动端与响应式开发" class="headerlink" title="3. 移动端与响应式开发"></a>3. 移动端与响应式开发</h2><ul>
-<li>[x] 纯移动开发</li>
-<li>[ ] 响应式开发</li>
-<li>[ ] Boostrap</li>
-</ul>
-<h2 id="4-常用前端库"><a href="#4-常用前端库" class="headerlink" title="4. 常用前端库"></a>4. 常用前端库</h2><ul>
-<li>[ ] jQuery</li>
-<li>[ ] zepto</li>
-<li>[ ] underscore</li>
-</ul>
-<h2 id="5-JS面向对象与设计模式"><a href="#5-JS面向对象与设计模式" class="headerlink" title="5. JS面向对象与设计模式"></a>5. JS面向对象与设计模式</h2><ul>
-<li>[ ] 重新学习javascript </li>
-<li>[ ] js设计模式</li>
-<li>[ ] js编程模式</li>
-<li>[ ] 函数式编程等</li>
-<li>[ ] ES6+ 新特性</li>
-</ul>
-<h2 id="6-模块化与组件化开发"><a href="#6-模块化与组件化开发" class="headerlink" title="6. 模块化与组件化开发"></a>6. 模块化与组件化开发</h2><ul>
-<li>[ ] 面向组件的编程方式</li>
-<li>[ ] AMD &amp; CMD 设计规范</li>
-<li>[ ] RequireJS &amp; SeaJS</li>
-</ul>
-<h2 id="7-前端构建"><a href="#7-前端构建" class="headerlink" title="7. 前端构建"></a>7. 前端构建</h2><ul>
-<li>[x] 版本控制 git svn</li>
-<li>[ ] npm</li>
-<li>[ ] gulp</li>
-<li>[ ] webpack</li>
-<li>[ ] yeoman脚手架</li>
-<li>[ ] 测试实现</li>
-</ul>
-<h2 id="8-流行框架"><a href="#8-流行框架" class="headerlink" title="8. 流行框架"></a>8. 流行框架</h2><ul>
-<li>[ ] Angular.js</li>
-<li>[ ] React.js</li>
-<li>[ ] Vue.js</li>
-</ul>
-<h2 id="9-Node-Js"><a href="#9-Node-Js" class="headerlink" title="9. Node.Js"></a>9. Node.Js</h2><ul>
-<li>[ ] 服务事件驱动</li>
-<li>[ ] 数据结构与数据库搭建</li>
-<li>[ ] 快速开发框架 Express</li>
-</ul>
-<h2 id="10-混合移动开发"><a href="#10-混合移动开发" class="headerlink" title="10. 混合移动开发"></a>10. 混合移动开发</h2><ul>
-<li>[ ] Ionic</li>
-<li>[ ] React Native</li>
-</ul>
-<h2 id="11-开发与部署"><a href="#11-开发与部署" class="headerlink" title="11. 开发与部署"></a>11. 开发与部署</h2><ul>
-<li>[ ] CDN部署静态资源</li>
-<li>[ ] MD5 与 文件更新vs浏览器缓存</li>
-</ul>
-<h2 id="12-性能优化与代码重构"><a href="#12-性能优化与代码重构" class="headerlink" title="12. 性能优化与代码重构"></a>12. 性能优化与代码重构</h2><h2 id="13-计算机知识"><a href="#13-计算机知识" class="headerlink" title="13. 计算机知识"></a>13. 计算机知识</h2><ul>
-<li>[ ] HTTP 协议</li>
-</ul>
-<h2 id="15-思考与进步"><a href="#15-思考与进步" class="headerlink" title="15. 思考与进步"></a>15. 思考与进步</h2>  
+</li>
+</ol>
+<blockquote>
+<p>\w(?=\d)</p>
+</blockquote>
+<p>js不支持后顾！</p>
+<h2 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h2><ol>
+<li><p>x*    x+                重复次数&gt;=0 重复次数&gt;0    贪婪算法（尽可能匹配到最多）</p>
+</li>
+<li><p>x*?    x+?                非贪婪算法（尽可能匹配少）</p>
+</li>
+<li><p>x?                    出现0或1次</p>
+</li>
+<li><p>x|y                    x或y</p>
+<pre><code> ab(cd|ef)g    相对于abcdg 或 abefg
+</code></pre></li>
+<li><p>x{n}    x{n,}?    x{n,m}    重复n次，重复&gt;n次（尽可能少），n&lt; 重复次数 &lt;m</p>
+</li>
+</ol>
+<h2 id="三个Flag"><a href="#三个Flag" class="headerlink" title="三个Flag"></a>三个Flag</h2><ol>
+<li><p>global            全局匹配</p>
+</li>
+<li><p>ignoreCase        忽略大小写</p>
+</li>
+<li><p>multiline        多行匹配</p>
+</li>
+</ol>
+<h2 id="正则对象属性"><a href="#正则对象属性" class="headerlink" title="正则对象属性"></a>正则对象属性</h2><ol>
+<li><p>global            /abc/g.global = true;</p>
+</li>
+<li><p>ignoreCase</p>
+</li>
+<li><p>multiline</p>
+</li>
+<li><p>source            /abc/g.source = ‘abc’;</p>
+</li>
+<li><p>lastIndex        下一次<strong>exec</strong>匹配开始的索引</p>
+</li>
+</ol>
+<h2 id="正则对象方法"><a href="#正则对象方法" class="headerlink" title="正则对象方法"></a>正则对象方法</h2><ol>
+<li><p>compile        修改正则（source</p>
+</li>
+<li><p>exec            获得匹配到的结果 没有成功返回null</p>
+</li>
+<li><p>test            检测是否有满足正则 有则返回true</p>
+</li>
+<li><p>toString        把正则表达式转为字符串</p>
+</li>
+</ol>
+<h2 id="string类型与正则相关的方法"><a href="#string类型与正则相关的方法" class="headerlink" title="string类型与正则相关的方法"></a>string类型与正则相关的方法</h2><ol>
+<li><p>String.prototype.search        查找是否有满足的</p>
+</li>
+<li><p>String.prototype.replace        替换</p>
+</li>
+</ol>
+<p><strong>特殊标记符$</strong></p>
+<blockquote>
+<p>$i : 表示从左到右正则子表达式所匹配的文本。(根据分组）</p>
+<p>$&amp; : 表示与正则表达式匹配的全文本。（每次的匹配结果，而不是全部，也不是整个字符串）</p>
+<p>$` : 表示匹配字符串的左边文本。（每次匹配结果的左边全部，根据原字符串，而不是替换后的）</p>
+<p>$’ : 表示匹配字符串的右边文本。</p>
+<p>$$ : 表示$转义。（即替换为$）（如果只有一个，也可写作”$”）</p>
+</blockquote>
+<p><strong>函数</strong></p>
+<p>每次匹配成功都会传参数给函数并执行（类似循环）</p>
+<p>参数</p>
+<blockquote>
+<ol>
+<li>整个正则表达式匹配的字符。</li>
+<li>第一分组匹配的内容、第二分组匹配的内容…… 以此类推直到最后一个分组。</li>
+<li>匹配结果在源自符串中的下标（位置）。</li>
+<li>源自符串</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>String.prototype.match        返回匹配结果 没有成功返回null</p>
+</li>
+<li><p>String.prototype.split        使用匹配结果分隔字符串，生成数组</p>
+</li>
+</ol>
+<p>最严谨的校验email地址的正则表达式：<br>    /^[-a-z0-9~!$%^&amp;<em>_=+}{\’?]+(.[-a-z0-9~!$%^&amp;</em><em>=+}{\’?]+)*@([a-z0-9</em>][-a-z0-9<em>]*(.[-a-z0-9</em>]+)*.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}))(:[0-9]{1,5})?$/i</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -194,7 +254,7 @@ var _hmt = _hmt || [];
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/12/18/前端种树/" data-title="前端种树 | 读书笔记" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/12/22/7. 正则表达式/" data-title="读书笔记" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -204,7 +264,7 @@ var _hmt = _hmt || [];
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/12/22/1. js基础/" title="">
+ <a href="/2016/12/22/设计模式/" title="">
   <strong>新一篇:</strong><br/>
   <span>
   (no title)</span>
@@ -213,9 +273,9 @@ var _hmt = _hmt || [];
 
 
 <div class="next">
-<a href="/2016/12/18/前端构建-Git速查表/"  title="Git速查表">
+<a href="/2016/12/22/6. js严格模式/"  title="">
  <strong>旧一篇:</strong><br/> 
- <span>Git速查表
+ <span>(no title)
 </span>
 </a>
 </div>

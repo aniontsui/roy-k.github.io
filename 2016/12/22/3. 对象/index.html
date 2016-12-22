@@ -1,0 +1,478 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>读书笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Roy-K">
+    
+    <meta name="description" content="对象对象中包含一系列属性，这些属性是**无序**的（散列），每一个属性都有一个**字符串**（数字会被转换）key和对应的value
+创建
+字面量
+
+构造函数
+
+Object.create(obj)    obj 将作为新创建对象的原型
+
+
+属性操作
+读写
+ 点. 或中括号[]的方式
+
+属性异常
+ ">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
+
+  
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="读书笔记">读书笔记</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="https://roy-k.github.io/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/22/3. 对象/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2016-12-22T06:41:47.960Z" itemprop="datePublished">2016年 12月 22日</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#对象"><span class="toc-number">1.</span> <span class="toc-text">对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性操作"><span class="toc-number">1.1.</span> <span class="toc-text">属性操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#getter-setter访问器"><span class="toc-number">1.1.1.</span> <span class="toc-text">getter setter访问器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性标签"><span class="toc-number">1.2.</span> <span class="toc-text">属性标签</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">#</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对象标签"><span class="toc-number">2.1.</span> <span class="toc-text">对象标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化"><span class="toc-number">2.2.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象方法"><span class="toc-number">2.3.</span> <span class="toc-text">对象方法</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><pre><code>对象中包含一系列属性，这些属性是**无序**的（散列），每一个属性都有一个**字符串**（数字会被转换）key和对应的value
+</code></pre><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><ol>
+<li><p>字面量</p>
+</li>
+<li><p>构造函数</p>
+</li>
+<li><p>Object.create(obj)    obj 将作为新创建对象的原型</p>
+</li>
+</ol>
+<h2 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h2><ol>
+<li><p>读写</p>
+<p> 点. 或中括号[]的方式</p>
+</li>
+<li><p>属性异常</p>
+<p> 短路： var yz = obj &amp;&amp; obj.y &amp;&amp; obj.y.z</p>
+</li>
+<li><p>删除</p>
+<p> delete 返回true不一定是删除成功，有可能本来就没有</p>
+<pre><code> - delete方法，不能删除var 声明的全局或局部变量  -- 可以删除不通过var 声明的变量        
+</code></pre><p> 原型上的属性不能通过实例中删除，可以结合getOwnPropertyDescriptor方法查看</p>
+</li>
+<li><p>检测</p>
+<p> key in obj</p>
+<p> obj.hasOwnProperty(key)；</p>
+<p> obj.propertyIsEnumerable(key);</p>
+<ul>
+<li>Object.defineProperty(obj,key,{enumerable:false})    （剩余属性会默认false）</li>
+<li>obj.key != undefined</li>
+<li>obj.key !== undefined</li>
+<li>undefined == null(true) undefined === null(false)</li>
+</ul>
+</li>
+<li><p>枚举</p>
+<p> for(key in obj)</p>
+</li>
+</ol>
+<h3 id="getter-setter访问器"><a href="#getter-setter访问器" class="headerlink" title="getter setter访问器"></a>getter setter访问器</h3><pre><code>get/set访问器不是对象的属性，而是属性的特性。大家一定要分清楚。特性只有内部才用，因此在javaScript中不能直接访问他们。为了表示特性是内部值用两队中括号括起来表示如[[Value]]。    
+
+var man = {
+    name : &#39;Bosn&#39;,
+    weibo : &#39;@Bosn&#39;,
+    get age() {
+        return new Date().getFullYear() - 1988;
+    },
+    set age(val) {
+        console.log(&#39;Age can\&#39;t be set to &#39; + val);
+    }
+}
+console.log(man.age); // 27
+man.age = 100; // Age can&#39;t be set to 100
+console.log(man.age); // still 27
+
+(与原型链)
+
+访问器属性也有描述其行为的四个特性： 
+
+    [[Configurable]]:是否可配置
+    [[Enumerable]]:是否可枚举
+    [[Get]]:在读取属性时调用的函数，默认是undefined
+    [[Set]]:在写入属性时调用的函数，默认是undefined
+</code></pre><h2 id="属性标签"><a href="#属性标签" class="headerlink" title="属性标签"></a>属性标签</h2><pre><code>Object.getOwnPropertyDescriptor(obj,key)    // 获得属性标签配置
+
+定义单个属性
+Object.defineProperty(obj,key,{
+    configurable:false,                // 配置 
+    writable:false,                    // 属性赋值
+    enumerable:true,                // 可枚举
+    value:&#39;&#39;                        // 值
+});
+
+定义多个属性
+Object.defineProperties(person, {
+    title : {value : &#39;fe&#39;, enumerable : true},
+    corp : {value : &#39;BABA&#39;, enumerable : true},
+    salary : {value : 50000, enumerable : true, writable : true}
+});
+</code></pre><h1 id=""><a href="#" class="headerlink" title="#"></a>#</h1><h2 id="对象标签"><a href="#对象标签" class="headerlink" title="对象标签"></a>对象标签</h2><p>[[proto]]</p>
+<pre><code>原型标签
+</code></pre><p>[[class]]</p>
+<pre><code>var toString = Object.prototype.toString;
+function getType(o){return toString.call(o).slice(8,-1);};
+
+toString.call(null); // &quot;[object Null]&quot;
+getType(null); // &quot;Null&quot;
+getType(undefined); // &quot;Undefined&quot;
+getType(1); // &quot;Number&quot;
+getType(new Number(1)); // &quot;Number&quot;
+typeof new Number(1); // &quot;object&quot;
+getType(true); // &quot;Boolean&quot;
+getType(new Boolean(true)); // &quot;Boolean&quot;
+</code></pre><p>[[extensible]]</p>
+<pre><code>var obj = {x : 1, y : 2};
+Object.isExtensible(obj); // true
+Object.preventExtensions(obj);
+Object.isExtensible(obj); // false
+
+obj.z = 1;
+obj.z; // undefined, add new property failed
+
+Object.getOwnPropertyDescriptor(obj, &#39;x&#39;);
+// Object {value: 1, writable: true, enumerable: true, configurable: true}
+
+Object.seal(obj);
+Object.getOwnPropertyDescriptor(obj, &#39;x&#39;);
+// Object {value: 1, writable: true, enumerable: true, configurable: false}
+Object.isSealed(obj); // true
+
+Object.freeze(obj);
+Object.getOwnPropertyDescriptor(obj, &#39;x&#39;);
+// Object {value: 1, writable: false, enumerable: true, configurable: false}
+Object.isFrozen(obj); // true
+
+// [caution] not affects prototype chain!!!
+</code></pre><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p><strong>stringify</strong></p>
+<pre><code>var obj = {x : 1, y : true, z : [1, 2, 3], nullVal : null};
+JSON.stringify(obj); // &quot;{&quot;x&quot;:1,&quot;y&quot;:true,&quot;z&quot;:[1,2,3],&quot;nullVal&quot;:null}&quot;
+
+obj = {val : undefined, a : NaN, b : Infinity, c : new Date()};
+JSON.stringify(obj); // &quot;{&quot;a&quot;:null,&quot;b&quot;:null,&quot;c&quot;:&quot;2015-01-20T14:15:43.910Z&quot;}&quot;
+</code></pre><p><strong>parse</strong></p>
+<pre><code>obj = JSON.parse(&#39;{&quot;x&quot; : 1}&#39;);
+obj.x; // 1
+</code></pre><p><strong>自定义</strong></p>
+<pre><code>var obj = {
+    x : 1,
+    y : 2,
+    o : {
+        o1 : 1,
+        o2 : 2,
+        toJSON : function () {
+            return this.o1 + this.o2;
+        }
+    }
+};
+JSON.stringify(obj); // &quot;{&quot;x&quot;:1,&quot;y&quot;:2,&quot;o&quot;:3}&quot;
+</code></pre><h2 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a>对象方法</h2><p><strong>toString</strong></p>
+<pre><code>var obj = {x : 1, y : 2};
+obj.toString(); // &quot;[object Object]&quot;
+obj.toString = function() {return this.x + this.y};
+&quot;Result &quot; + obj; // &quot;Result 3&quot;, by toString
+
++obj; // 3, from toString
+</code></pre><p><strong>valueOf</strong></p>
+<pre><code>obj.valueOf = function() {return this.x + this.y + 100;};
++obj; // 103, from valueOf
+
+&quot;Result &quot; + obj; // still &quot;Result 3&quot;
+</code></pre>  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/22/3. 对象/" data-title="读书笔记" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/22/4. 函数与作用域/" title="">
+  <strong>新一篇:</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/22/2. 数组相关/"  title="">
+ <strong>旧一篇:</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 高宽 Roy</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>

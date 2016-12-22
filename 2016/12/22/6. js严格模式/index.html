@@ -4,19 +4,18 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>我的博客小站开通啦 | 读书笔记</title>
+    <title>读书笔记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Roy-K">
     
-    <meta name="description" content="昨夜西风凋碧树
+    <meta name="description" content="严格模式严格模式是一种特殊的执行模式，它修复了部分语言上的不足，提供更强的错误检查，并增强安全性。
 
-每天都在看别人博客学习，据说输出知识是掌握知识的最佳途径。
-
-伴着酷炫的妄想，和年轻的热情，我要开始写博客了。
-
-
- 努力！奋斗！">
+不允许用with
+不允许未声明的变量赋值
+arguments变为参数的静态副本        传入对象是可以修改其value
+ !function(a) {
+ &amp;#39;use strict&amp;#39">
     
     
     
@@ -86,10 +85,10 @@ var _hmt = _hmt || [];
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/01/我的博客小站开通啦/" title="我的博客小站开通啦" itemprop="url">我的博客小站开通啦</a>
+      <a href="/2016/12/22/6. js严格模式/" title="" itemprop="url"></a>
   </h1>
   <p class="article-time">
-    <time datetime="2016-11-30T16:00:00.000Z" itemprop="datePublished">2016年 12月 1日</time>
+    <time datetime="2016-12-22T06:41:47.965Z" itemprop="datePublished">2016年 12月 22日</time>
   </p>
 </header>
 	<div class="article-content">
@@ -97,17 +96,64 @@ var _hmt = _hmt || [];
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title"></strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#昨夜西风凋碧树"><span class="toc-number">1.</span> <span class="toc-text">昨夜西风凋碧树</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#严格模式"><span class="toc-number">1.</span> <span class="toc-text">严格模式</span></a></li></ol>
 		</div>
 		
-		<h1 id="昨夜西风凋碧树"><a href="#昨夜西风凋碧树" class="headerlink" title="昨夜西风凋碧树"></a>昨夜西风凋碧树</h1><hr>
-<ul>
-<li><p>每天都在看别人博客学习，据说输出知识是掌握知识的最佳途径。</p>
+		<h1 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h1><pre><code>严格模式是一种特殊的执行模式，它修复了部分语言上的不足，提供更强的错误检查，并增强安全性。
+</code></pre><ol>
+<li>不允许用with</li>
+<li>不允许未声明的变量赋值</li>
+<li><p>arguments变为参数的静态副本        传入对象是可以修改其value</p>
+<p> !function(a) {</p>
+<pre><code> &#39;use strict&#39;;
+ arguments[0].x = 100;
+ console.log(a.x);
+</code></pre><p> }({x:1});</p>
 </li>
-<li><p>伴着酷炫的妄想，和年轻的热情，我要开始写博客了。</p>
+<li><p>delete参数、函数名报错</p>
+<p> !function(a) {</p>
+<pre><code> &#39;use strict&#39;;
+ delete a;
+</code></pre><p> }(1);</p>
 </li>
-</ul>
-<p><strong> 努力！奋斗！</strong></p>
+<li><p>delete不可配置的属性报错</p>
+<p> !function(a) {</p>
+<pre><code> &#39;use strict&#39;;
+ var obj = {};
+ Object.defineProperty(obj, 
+     &#39;a&#39;, {configurable : false});
+ delete obj.a;
+</code></pre><p> }(1);</p>
+</li>
+<li><p>对象字面量重复属性名报错</p>
+<p> !function() {</p>
+<pre><code> &#39;use strict&#39;;
+ var obj = {x : 1, x : 2};
+</code></pre><p> }();</p>
+</li>
+<li><p>禁止八进制字面量</p>
+<p> !function() {</p>
+<pre><code> &#39;use strict&#39;;
+ console.log(0123);
+</code></pre><p> }();</p>
+</li>
+<li><p>eval, arguments变为关键字，不能作为变量、函数名</p>
+<p> !function() {</p>
+<pre><code> &#39;use strict&#39;;
+ function eval(){}
+</code></pre><p> }();</p>
+</li>
+<li><p>eval独立作用域</p>
+<p> !function() {</p>
+<pre><code> &#39;use strict&#39;;
+ eval(&#39;var evalVal = 2;&#39;);
+ console.log(typeof evalVal);
+</code></pre><p> }();  // undefined</p>
+</li>
+<li><p>一般函数调用时(不是对象的方法调用，也不使用apply/call/bind等修改this)this指向null，而不是全局对象。</p>
+</li>
+</ol>
+<p>若使用apply/call，当传入null或undefined时，this将指向null或undefined，而不是全局对象。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -117,7 +163,7 @@ var _hmt = _hmt || [];
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/12/01/我的博客小站开通啦/" data-title="我的博客小站开通啦 | 读书笔记" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/12/22/6. js严格模式/" data-title="读书笔记" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -127,13 +173,21 @@ var _hmt = _hmt || [];
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/12/02/页面交互与事件处理-DOM尺寸相关/" title="DOM 尺寸相关属性">
+ <a href="/2016/12/22/7. 正则表达式/" title="">
   <strong>新一篇:</strong><br/>
   <span>
-  DOM 尺寸相关属性</span>
+  (no title)</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2016/12/22/5. 面向对象/"  title="">
+ <strong>旧一篇:</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
 
 </nav>
 

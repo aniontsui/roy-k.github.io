@@ -4,19 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>我的博客小站开通啦 | 读书笔记</title>
+    <title>认识DOM | 读书笔记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Roy-K">
     
-    <meta name="description" content="昨夜西风凋碧树
+    <meta name="description" content="认识DOM##节点##
+元素节点 标签
 
-每天都在看别人博客学习，据说输出知识是掌握知识的最佳途径。
+属性节点 元素属性
 
-伴着酷炫的妄想，和年轻的热情，我要开始写博客了。
+文本节点 元素中内容
 
-
- 努力！奋斗！">
+注释节点    注释
+##节点属性##
+nodeName
+    - 元素节点    与标签名相同
+    - 属性节点    属性的名称
+    - 文本节点    #text
+    - 文档节点    #d">
     
     
     
@@ -86,10 +92,10 @@ var _hmt = _hmt || [];
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/01/我的博客小站开通啦/" title="我的博客小站开通啦" itemprop="url">我的博客小站开通啦</a>
+      <a href="/2016/12/02/页面交互与事件处理-DOM-API/" title="认识DOM" itemprop="url">认识DOM</a>
   </h1>
   <p class="article-time">
-    <time datetime="2016-11-30T16:00:00.000Z" itemprop="datePublished">2016年 12月 1日</time>
+    <time datetime="2016-12-01T16:00:00.000Z" itemprop="datePublished">2016年 12月 2日</time>
   </p>
 </header>
 	<div class="article-content">
@@ -97,27 +103,178 @@ var _hmt = _hmt || [];
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title"></strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#昨夜西风凋碧树"><span class="toc-number">1.</span> <span class="toc-text">昨夜西风凋碧树</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#认识DOM"><span class="toc-number">1.</span> <span class="toc-text">认识DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#document的属性"><span class="toc-number">1.0.1.</span> <span class="toc-text">document的属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存DOM树与物理DOM树"><span class="toc-number">1.1.</span> <span class="toc-text">内存DOM树与物理DOM树</span></a></li></ol></li></ol>
 		</div>
 		
-		<h1 id="昨夜西风凋碧树"><a href="#昨夜西风凋碧树" class="headerlink" title="昨夜西风凋碧树"></a>昨夜西风凋碧树</h1><hr>
-<ul>
-<li><p>每天都在看别人博客学习，据说输出知识是掌握知识的最佳途径。</p>
-</li>
-<li><p>伴着酷炫的妄想，和年轻的热情，我要开始写博客了。</p>
-</li>
-</ul>
-<p><strong> 努力！奋斗！</strong></p>
+		<h1 id="认识DOM"><a href="#认识DOM" class="headerlink" title="认识DOM"></a>认识DOM</h1><p>##节点##</p>
+<pre><code>元素节点 标签
+
+属性节点 元素属性
+
+文本节点 元素中内容
+
+注释节点    注释
+</code></pre><p>##节点属性##</p>
+<pre><code>nodeName
+    - 元素节点    与标签名相同
+    - 属性节点    属性的名称
+    - 文本节点    #text
+    - 文档节点    #document
+    - 注释节点
+
+nodeType
+    - 元素    1
+    - 属性    2
+    - 文本    3
+    - 注释    8
+    - 文档    9
+    - 文档类型节点    10
+    - 文档片段节点    11
+
+nodeValue
+    - 元素节点    undefined或null
+    - 文本节点    文本自身
+    - 属性节点    属性的值
+</code></pre><p>##获取节点##</p>
+<pre><code>getElementById 根据Id 得到一个元素
+
+getElementsByClassName 根据类名 得到一个数组  ie6/7/8有兼容性问题
+    封装兼容性思路:取出所有的盒子,并判断类名
+var dom = document.body.getElementsByTagName(&quot;*&quot;);
+
+getElementsByName name属性
+
+getElementsByTagName 根据标签 得到一个数组
+
+其他:
+document.head
+document.body
+document.title  浏览器标题处显示的内容
+document.documentElement(html根节点);
+</code></pre><h3 id="document的属性"><a href="#document的属性" class="headerlink" title="document的属性"></a>document的属性</h3><pre><code>document.title
+document.bgColor
+document.linkColor
+document.alinkColor
+document.vlinkColor
+document.URL
+document.fileCreatedDate
+document.fileModifiedDate
+document.fileSize
+document.cookie
+document.charset
+</code></pre><p>##遍历节点方法##</p>
+<pre><code>children    不是标准的DOM属性,但是得到所有浏览器支持,而且只会获得标签节点
+
+childNodes  是标准的DOM属性,返回一个数组
+    - 高版本浏览器会计算空白文本节点
+
+firstChild    第一个节点
+
+firstElementChild    第一个节点
+
+lastChild    最后一个节点
+
+lastElementChild  最后一个节点
+
+parentNode 返回父节点
+
+nextSibling   下一个兄弟节点     会获得除标签以外的文本节点,IE8及之前的所有浏览器都支持,
+    低版本IE会忽略空白文本节点
+    - 需排除空白文本节点    属性值为3
+    - x.nodeType != 1
+    - x &amp;&amp; x.nodeType != 1
+
+nextElementSibling        IE不支持,会报错 只会获得元素节点
+
+    ?_? var aim = d.nextElementSibling || d.nextSibling;返回了一些奇怪的东西!
+
+previousSibling  上一个元素
+
+previousElementSibling    上一个元素   IE不支持
+</code></pre><p>##DOM操作## </p>
+<pre><code>    - 三步：创建、赋值、插入。
+    - 操作是在子节点位置
+
+obj.style的方式:
+getAttribute() 获得元素节点的属性值
+setAttribute() 设置元素节点的属性值
+
+添加多个属性的方式:添加类名
+
+获取某个属性的值: window.getComputedStyle(obj,null)[attr];
+    obj.currentStyle[attr] IE支持的
+
+- inputs[i].value = &quot;a&quot;+i;                    // 属性对象方式, 写入内存
+
+- inputs[i].setAttribute(&quot;value&quot;,&quot;a&quot;+i);        // 元素对象方式, 写入文件
+- inputs[i].getAttribute(&quot;value&quot;)
+
+innerHTML:无兼容性问题,赋值的innerHTML里面如果有标签,会解析
+
+innerText:IE8及以前的浏览器版本支持,但是低版本的火狐42不支持,仅支持textContent,而IE8及以前的浏览器又不支持textContent,高版本的都支持这两个属性.
+    - 兼容性方法:
+    function set(ele,value) {
+        if(typeof ele.innerText == &quot;string&quot;) {
+            ele.innerText = value;
+        }else {
+            ele.textContent = value;
+        }
+    }
+
+createElement(&quot;p&quot;) 创建元素节点
+    - var btn = document.createElement(&quot;input&quot;);
+    - btn.setAttribute(&quot;onclick&quot;, &quot;javascript:alert(&#39;This is a text!&#39;);&quot;); 
+    - body.appendChild(btn);     
+    - IE7 创建表格必须有表头
+
+createTextNode(&quot; &quot;) 创建文本节点
+    -  var te = document.createTextNode(&quot;I Love JavaScript!&quot;);
+    - ele.appendChild(te);
+
+appendChild() 在某节点的子节点后插入节点
+    - 还有剪切功能.
+
+insertBefore() 之前
+    - var otest = document.getElementById(&quot;test&quot;);  
+    - var a= document.createElement(&quot;li&quot;);
+    - a.innerHTML=&quot;PHP&quot;;
+    - otest.insertBefore(a,otest.lastChild);
+    - 还有剪切功能.
+
+removeChild() 删除一个子节点
+    - 从子节点列表中删除某个节点。如删除成功，此方法可返回被删除的节点，如失败，则返回 NULL。
+    - 1. 删除该节点的内容，先要获取子节点。
+    - 2. 然后使用循环遍历每个子节点。
+    - 3. 使用removeChild()删除节点。
+    - while(content.firstChild) {
+          content.removeChild(content.firstChild);}
+
+replaceChild() 替换一个子节点
+    - 只有父结点才能调用  replaceChild(newnode,oldnode).这个方法.
+        所以，要想替换当前结点的内容或者属性，那么首先得获得父节点，才可以操作，
+        这就是为什么 oldnode.parentNode.replaceChild(newnode,oldnode); 这句代码的写法。。
+    - old.parentNode.replaceChild(new,old); 
+</code></pre><h2 id="内存DOM树与物理DOM树"><a href="#内存DOM树与物理DOM树" class="headerlink" title="内存DOM树与物理DOM树"></a>内存DOM树与物理DOM树</h2><p>(未研究)</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/DOM/">DOM</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/页面交互与事件处理/">页面交互与事件处理</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/12/01/我的博客小站开通啦/" data-title="我的博客小站开通啦 | 读书笔记" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/12/02/页面交互与事件处理-DOM-API/" data-title="认识DOM | 读书笔记" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -127,13 +284,21 @@ var _hmt = _hmt || [];
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/12/02/页面交互与事件处理-DOM尺寸相关/" title="DOM 尺寸相关属性">
+ <a href="/2016/12/02/页面交互与事件处理-Js事件相关/" title="事件相关">
   <strong>新一篇:</strong><br/>
   <span>
-  DOM 尺寸相关属性</span>
+  事件相关</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2016/12/02/页面交互与事件处理-DOM尺寸相关/"  title="DOM 尺寸相关属性">
+ <strong>旧一篇:</strong><br/> 
+ <span>DOM 尺寸相关属性
+</span>
+</a>
+</div>
 
 </nav>
 
